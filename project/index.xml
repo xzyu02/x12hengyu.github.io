@@ -7,48 +7,56 @@
     <description>Projects</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 01 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://x12hengyu.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <url>https://x12hengyu.github.io/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_512x512_fill_lanczos_center_3.png</url>
       <title>Projects</title>
       <link>https://x12hengyu.github.io/project/</link>
     </image>
     
     <item>
       <title>Sign Language Detection System</title>
-      <link>https://x12hengyu.github.io/project/asl-system/</link>
+      <link>https://x12hengyu.github.io/project/22fa-639-asl-system/</link>
       <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://x12hengyu.github.io/project/asl-system/</guid>
+      <guid>https://x12hengyu.github.io/project/22fa-639-asl-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object Tracking based on Optical Flow</title>
+      <link>https://x12hengyu.github.io/project/639-tracking/</link>
+      <pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://x12hengyu.github.io/project/639-tracking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Image Mosaicking App</title>
-      <link>https://x12hengyu.github.io/project/img-stitch/</link>
+      <link>https://x12hengyu.github.io/project/639-img-stitch/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://x12hengyu.github.io/project/img-stitch/</guid>
+      <guid>https://x12hengyu.github.io/project/639-img-stitch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Refocusing</title>
-      <link>https://x12hengyu.github.io/project/refocusing/</link>
+      <link>https://x12hengyu.github.io/project/639-refocusing/</link>
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://x12hengyu.github.io/project/refocusing/</guid>
+      <guid>https://x12hengyu.github.io/project/639-refocusing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DBMS of Major Investment Financial Assets</title>
-      <link>https://x12hengyu.github.io/project/dmbs-of-finance/</link>
+      <link>https://x12hengyu.github.io/project/564-dmbs-of-finance/</link>
       <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://x12hengyu.github.io/project/dmbs-of-finance/</guid>
+      <guid>https://x12hengyu.github.io/project/564-dmbs-of-finance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Skin Cancer Classification Chatbot</title>
-      <link>https://x12hengyu.github.io/project/skin-cancer/</link>
+      <link>https://x12hengyu.github.io/project/21su-skin-cancer/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://x12hengyu.github.io/project/skin-cancer/</guid>
+      <guid>https://x12hengyu.github.io/project/21su-skin-cancer/</guid>
       <description></description>
     </item>
     
