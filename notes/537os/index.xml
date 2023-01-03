@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CS-537: Introduction to Operating Systems | Xizheng Yu</title>
+    <link>https://x12hengyu.github.io/notes/537os/</link>
+      <atom:link href="https://x12hengyu.github.io/notes/537os/index.xml" rel="self" type="application/rss+xml" />
+    <description>CS-537: Introduction to Operating Systems</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 30 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://x12hengyu.github.io/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_512x512_fill_lanczos_center_3.png</url>
+      <title>CS-537: Introduction to Operating Systems</title>
+      <link>https://x12hengyu.github.io/notes/537os/</link>
+    </image>
+    
+    <item>
+      <title>Midterm Review</title>
+      <link>https://x12hengyu.github.io/notes/537os/1/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://x12hengyu.github.io/notes/537os/1/</guid>
+      <description>&lt;h2 id=&#34;virtualization&#34;&gt;&lt;strong&gt;VIRTUALIZATION:&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Build an illusion of unlimited hardware, e.g., as many CPUs as needed; a large, private memory region for each program.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Time-Sharing:&lt;/strong&gt; Multiple applications use &lt;em&gt;the same resource&lt;/em&gt; at &lt;em&gt;different times&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;Share the same CPU core among multiple processes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Space-Sharing:&lt;/strong&gt; Multiple applications use &lt;em&gt;parts of the same resource&lt;/em&gt; at &lt;em&gt;the same time&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;Allocate a certain number of CPU (cores) to a process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Goals:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Efficiency&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Virtualization should not create a significant overhead&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Protect processes form each other&lt;/li&gt;
+&lt;li&gt;Protect the OS from processes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;High-level Goal&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Give each &lt;em&gt;running program&lt;/em&gt; the impression it alone is actively using the CPU and other resources&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Processes:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Programs vs. Processes: We &lt;strong&gt;Compile&lt;/strong&gt; Programs and &lt;strong&gt;Run&lt;/strong&gt; Processes&lt;/li&gt;
+&lt;li&gt;We want each running program that impression it alone is actively using the CPU and other resources.&lt;/li&gt;
+&lt;li&gt;Things changes during programs running:
+&lt;ul&gt;
+&lt;li&gt;I/O: open file descriptors, write to disk, network, screen&lt;/li&gt;
+&lt;li&gt;CPU: Registers, Program Counter, General Purpose&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pause a process:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;On Pause:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Process state is stored on its &lt;em&gt;kernel stack.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;The kernel stack is managed by the OS among other process metadata&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;On Resume:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Process state is restored from kernel stack to the CPU&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Limited&lt;/strong&gt; &lt;strong&gt;Direct Execution:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Screen Shot 2022-09-13 at 17.58.38.png&#34; srcset=&#34;
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_17.58.38_hu015751a4aa07cb832934c1d1d5257e83_158292_d5f0f53c9413701b51cf5bb3fc9d9139.webp 400w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_17.58.38_hu015751a4aa07cb832934c1d1d5257e83_158292_7aee4ca832a1b9def77983b405df7126.webp 760w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_17.58.38_hu015751a4aa07cb832934c1d1d5257e83_158292_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://x12hengyu.github.io/notes/537os/1/imgs/Screen_Shot_2022-09-13_at_17.58.38_hu015751a4aa07cb832934c1d1d5257e83_158292_d5f0f53c9413701b51cf5bb3fc9d9139.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;355&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Problems:
+&lt;ul&gt;
+&lt;li&gt;Security: process might do restricted things&lt;/li&gt;
+&lt;li&gt;Efficiency: process might do things slow&lt;/li&gt;
+&lt;li&gt;Process may run forever&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Solution:
+&lt;ul&gt;
+&lt;li&gt;User Mode (restricted mode): limited instructions, single address space&lt;/li&gt;
+&lt;li&gt;Kernel Mode (privileged): execute all instructions, access all of memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Switching between user and Kernel Mode:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Trap:&lt;/strong&gt; Enters kernel mode from user mode
+&lt;ul&gt;
+&lt;li&gt;Code invokes &lt;em&gt;system calls&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Code performs illegal/restricted operation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Return-from-trap:&lt;/strong&gt; Executed after returning the process&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trap handlers:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Set up at boot time by the OS&lt;/li&gt;
+&lt;li&gt;Executed after a process calls a trap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Screen Shot 2022-09-13 at 18.13.44.png&#34; srcset=&#34;
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.13.44_hufcd91074b574df04edee284b037b8639_144854_b6c1239285ce0620346a13c239bce1af.webp 400w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.13.44_hufcd91074b574df04edee284b037b8639_144854_b9d34106a58ae7496a6b59a372dcd2cf.webp 760w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.13.44_hufcd91074b574df04edee284b037b8639_144854_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://x12hengyu.github.io/notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.13.44_hufcd91074b574df04edee284b037b8639_144854_b6c1239285ce0620346a13c239bce1af.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;246&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Multi-Processes:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;So far:&lt;/strong&gt; Cooperative multi-tasking
+&lt;ul&gt;
+&lt;li&gt;Can only switch to another task if the process says so&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-cooperative multi-tasking&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Time-share the same CPU core among multiple processes&lt;/li&gt;
+&lt;li&gt;Switch between processes &lt;em&gt;every few milliseconds&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Timer Interrupts&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Setup up by the operating system at boot time&lt;/li&gt;
+&lt;li&gt;Timer interrupt the CPU every few milliseconds&lt;/li&gt;
+&lt;li&gt;Operating System may run scheduler* to decide which process to run next&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Screen Shot 2022-09-13 at 18.33.21.png&#34; srcset=&#34;
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.21_hua3a586703b011e8ff51f6fd451eafe91_217712_914987f8ec64c57eabc3f126eb27e403.webp 400w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.21_hua3a586703b011e8ff51f6fd451eafe91_217712_7a2b59c27e373d7e90dc67c59a8b5b8d.webp 760w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.21_hua3a586703b011e8ff51f6fd451eafe91_217712_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://x12hengyu.github.io/notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.21_hua3a586703b011e8ff51f6fd451eafe91_217712_914987f8ec64c57eabc3f126eb27e403.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;427&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Screen Shot 2022-09-13 at 18.33.48.png&#34; srcset=&#34;
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.48_huf10b57e722d87c283128303050ce9258_88319_743fc3b8690a667f2ce51f2abbcc6416.webp 400w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.48_huf10b57e722d87c283128303050ce9258_88319_8d12a17e643136c08ec69366301fc365.webp 760w,
+               /notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.48_huf10b57e722d87c283128303050ce9258_88319_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://x12hengyu.github.io/notes/537os/1/imgs/Screen_Shot_2022-09-13_at_18.33.48_huf10b57e722d87c283128303050ce9258_88319_743fc3b8690a667f2ce51f2abbcc6416.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;635&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Do not schedule/run a blocked processes&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Threads:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Threads: “Lightweight process”&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;A process can have multiple threads&lt;/li&gt;
+&lt;li&gt;All threads of a process read/write the processes memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;They are handled (almost) the same as processes by the OS&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Each thread has their own stack and kernel stack&lt;/li&gt;
+&lt;li&gt;Threads can be ready, running, or blocking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;scheduling&#34;&gt;&lt;strong&gt;SCHEDULING:&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Minimize &lt;strong&gt;turnaround time&lt;/strong&gt; (&lt;em&gt;turnaround_time &lt;strong&gt;=&lt;/strong&gt; completion_time – arrival_time&lt;/em&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Want job to be completed as soon as possible&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FIFO&lt;/strong&gt; (First In, First Out), run jobs in arrival order
+&lt;ul&gt;
+&lt;li&gt;A: arrival 0, run 10, B: arrival 0, run 10, C: arrival 0, run 10&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average Turnaround Time&lt;/strong&gt; = (10+20+30)/3 = 20s&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt; Convoy problem, A pretty long job
+&lt;ul&gt;
+&lt;li&gt;A: arrival 0, run 100, B: arrival 0, run 10, C: arrival 0, run 10&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average Turnaround Time&lt;/strong&gt; = (100+110+120)/3 = 110s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SJF&lt;/strong&gt; (Shortest Job First)
+&lt;ul&gt;
+&lt;li&gt;Moving shorter job before longer job improves turnaround time of short job&lt;/li&gt;
+&lt;li&gt;A: arrival 0, run 100, B: arrival 0, run 10, C: arrival 0, run 10&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average Turnaround Time&lt;/strong&gt; = (10+20+120)/3 = 50s&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Jobs do not arrive at the same time
+&lt;ul&gt;
+&lt;li&gt;A: arrival 0, run 100, B: arrival 10, run 10, C: arrival 10, run 10&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average Turnaround Time&lt;/strong&gt; = (100+110-10+120-10)/3 = 103s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;STCF&lt;/strong&gt; (Shortest Time-to-Completion First)
+&lt;ul&gt;
+&lt;li&gt;Always run job that will complete the quickest&lt;/li&gt;
+&lt;li&gt;A: arrival 0, run 100, B: arrival 10, run 10, C: arrival 10, run 10&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average Turnaround Time&lt;/strong&gt; = (10+20+120)/3 = 50s&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem&lt;/strong&gt;: what if we do not know job runtime?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Minimize &lt;strong&gt;response time&lt;/strong&gt; (&lt;em&gt;response_time &lt;strong&gt;=&lt;/strong&gt; first_run_time – arrival_time&lt;/em&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Can’t control how long job needs to run; minimize time before scheduled&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Round-Robin&lt;/strong&gt; (RR)
+&lt;ul&gt;
+&lt;li&gt;Alternate ready processes for a fixed-length time-slice, Short jobs will finish after fewer time-slices&lt;/li&gt;
+&lt;li&gt;Features:
+&lt;ul&gt;
+&lt;li&gt;May increase turnaround time, decreases response time&lt;/li&gt;
+&lt;li&gt;Potentially causes additional context switches&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A: arrival 0, run 5, B: arrival 0, run 5, C: arrival 0, run 5&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average Turnaround Time&lt;/strong&gt; = (13+14+15)/3 = 14s&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average Response Time&lt;/strong&gt; = (1-0+2-0+3-0)/3 = 2s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MLFQ&lt;/strong&gt; (Multi-Level Feedback Queue)
+&lt;ul&gt;
+&lt;li&gt;Support two job types
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Interactive&lt;/strong&gt; programs care about response time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Batch&lt;/strong&gt; programs care about turnaround time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Approach:
+&lt;ul&gt;
+&lt;li&gt;Multiple levels of round-robin&lt;/li&gt;
+&lt;li&gt;Each level has higher priority than lower level&lt;/li&gt;
+&lt;li&gt;Can preempt them&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Rules:
+&lt;ol&gt;
+&lt;li&gt;If priority(A) &amp;gt; Priority(B), A runs&lt;/li&gt;
+&lt;li&gt;If priority(A) == Priority(B), A &amp;amp; B run in Round-Robin&lt;/li&gt;
+&lt;li&gt;Processes start at top priority&lt;/li&gt;
+&lt;li&gt;If job uses whole slice, demote process&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Starvation Problem&lt;/strong&gt;: Low priority batch job may never get scheduled if other jobs at high priority&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solution&lt;/strong&gt;: Periodically &lt;strong&gt;boost&lt;/strong&gt; priority of all jobs (or all jobs that haven’t been scheduled)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Job could trick scheduler by not using entire time-slice, (doing I/O just before time-slice end)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lottery Scheduling&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Approach:
+&lt;ul&gt;
+&lt;li&gt;give processes lottery tickets&lt;/li&gt;
+&lt;li&gt;whoever wins runs&lt;/li&gt;
+&lt;li&gt;higher priority =&amp;gt; more tickets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Maximize &lt;strong&gt;throughput&lt;/strong&gt; (jobs completed / second)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Want many jobs to complete per unit of time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Maximize &lt;strong&gt;resource utilization&lt;/strong&gt; (% time CPU busy)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Keep expensive devices busy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Minimize &lt;strong&gt;overhead&lt;/strong&gt; (# of context switches and cache misses)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reduce number of context switches&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Maximize &lt;strong&gt;fairness&lt;/strong&gt; (variation of CPU time across jobs)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All jobs get same amount of CPU over some time interval&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;process-creation&#34;&gt;&lt;strong&gt;PROCESS CREATION&lt;/strong&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;New Process
+&lt;ul&gt;
+&lt;li&gt;pro: no wasted work&lt;/li&gt;
+&lt;li&gt;con: difficult to setup process and express all options&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Copy and Change (fork() and exec())
+&lt;ul&gt;
+&lt;li&gt;pro: flexible, clean, simple&lt;/li&gt;
+&lt;li&gt;con: waste copy and memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;memory-virtualizing&#34;&gt;&lt;strong&gt;MEMORY VIRTUALIZING&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Time-share Memory&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;swap between disk and memory&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem&lt;/strong&gt;: disk is so slow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Static Relocation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rewrite each code segment before loading it in memory&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem&lt;/strong&gt;: No protection, Poor security, No dynamic allocation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Dynamic Relocation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MMU&lt;/strong&gt; (Memory Management Unit)
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Non-privileged (user) mode:&lt;/strong&gt; Processes run
+&lt;ul&gt;
+&lt;li&gt;Perform translation of &lt;strong&gt;Virtual&lt;/strong&gt; address to &lt;strong&gt;Physical&lt;/strong&gt; address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privileged (protected, kernel) mode:&lt;/strong&gt; OS runs
+&lt;ul&gt;
+&lt;li&gt;When enter OS (trap, system calls, interrupts, exceptions)&lt;/li&gt;
+&lt;li&gt;Allows privileged instructions to be executed&lt;/li&gt;
+&lt;li&gt;Can manipulate contents of MMU&lt;/li&gt;
+&lt;li&gt;Allows OS to access all of physical memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MMU dynamically changes process address at every memory reference&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Process generates logical or &lt;strong&gt;virtual&lt;/strong&gt; addresses (in their address space)&lt;/li&gt;
+&lt;li&gt;Memory hardware uses &lt;strong&gt;physical&lt;/strong&gt; or real addresses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Base Registers&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Each process has different value in base register&lt;/li&gt;
+&lt;li&gt;Set by the OS on context switch&lt;/li&gt;
+&lt;li&gt;MMU adds base register to &lt;strong&gt;virtual&lt;/strong&gt; address to form &lt;strong&gt;physical&lt;/strong&gt; address
+&lt;ul&gt;
+&lt;li&gt;e.g. Process 1 (Base 1024), Virtual - P1 load 100, Physical - load 1124&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Base and Bounds&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Base register:&lt;/strong&gt; Smallest physical address (or starting location)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bounds register:&lt;/strong&gt; Size of this process’s virtual address space&lt;/li&gt;
+&lt;li&gt;MMU performs bound check, if beyond bounds (&lt;strong&gt;Bad Address)&lt;/strong&gt;, OS kill it
+&lt;ul&gt;
+&lt;li&gt;e.g. Process 1 (Base 1024, Bounds 1024)&lt;/li&gt;
+&lt;li&gt;Virtual - P1 load 100, Physical - load 1124; Virtual - P1 load 2000, Kill P1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;OS involvement:
+&lt;ul&gt;
+&lt;li&gt;Bad Address → Exception → OS → Free memory&lt;/li&gt;
+&lt;li&gt;Process Create/Exit&lt;/li&gt;
+&lt;li&gt;Context switch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;pro:
+&lt;ul&gt;
+&lt;li&gt;Provides protection (both read and write) across address spaces&lt;/li&gt;
+&lt;li&gt;Supports dynamic relocation&lt;/li&gt;
+&lt;li&gt;Can place process at different locations initially and move address spaces&lt;/li&gt;
+&lt;li&gt;Simple, inexpensive implementation in MMU&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;con:
+&lt;ul&gt;
+&lt;li&gt;Each process must be allocated contiguously in physical memory&lt;/li&gt;
+&lt;li&gt;reserve memory cause waste&lt;/li&gt;
+&lt;li&gt;cannot share between process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;segmentation&#34;&gt;&lt;strong&gt;SEGMENTATION&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Divide logical address space into logical segments – visible to the OS&lt;/p&gt;
+&lt;p&gt;Several base + bound pairs per process&lt;/p&gt;
+&lt;p&gt;Each segment has own code, stack, heap&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Virtual Address: 1. Top bits of segment 2. Low bits of offset within segment&lt;/li&gt;
+&lt;li&gt;pro:
+&lt;ul&gt;
+&lt;li&gt;Each segment can independently be placed separately in physical memory&lt;/li&gt;
+&lt;li&gt;grow and shrink&lt;/li&gt;
+&lt;li&gt;be protected (separate read/write/execute bits)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;cons:
+&lt;ul&gt;
+&lt;li&gt;Each segment must be allocated contiguously&lt;/li&gt;
+&lt;li&gt;External Fragmentation: Small pieces of free memory might not be usable/assignable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;paging&#34;&gt;&lt;strong&gt;PAGING&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Goal: Remove requirement that address space needs to be contiguous&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eliminates external fragmentation&lt;/li&gt;
+&lt;li&gt;Ability to grow address space as needed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Divide address spaces and physical memory into fixed-sized (same sized) pages&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Divide (virtual) address space into fixed-sized units (e.g. 4kb), called &lt;strong&gt;pages&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Divide (physical) memory into fixed-sized slots called &lt;strong&gt;page frames&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;Page Tables&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One for each process&lt;/li&gt;
+&lt;li&gt;One for the kernel’s virtual memory&lt;/li&gt;
+&lt;li&gt;Additionally, we need a free list keeps track of which frames are free or currently mapped to a process&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Translation&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;High-order bits of address designate &lt;strong&gt;VPN&lt;/strong&gt; (Virtual Page Number)&lt;/li&gt;
+&lt;li&gt;Low-order bits of address designate offset within page&lt;/li&gt;
+&lt;li&gt;Translate &lt;strong&gt;VPN&lt;/strong&gt; to &lt;strong&gt;PFN&lt;/strong&gt; (Physical Frame Number)&lt;/li&gt;
+&lt;li&gt;Append offset to PFN get physical address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Calculation
+&lt;ul&gt;
+&lt;li&gt;e.g. 32 bits address space, 4kb pages, 4bytes of &lt;strong&gt;PTEs (page table entries)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;$\textup{Offsets} = \log_2(\textup{Page Size})$
+&lt;ul&gt;
+&lt;li&gt;log2(4kb) = 12&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$\textup{Bits for VPN} = \textup{Address Space} - \textup{Offsets}$
+&lt;ul&gt;
+&lt;li&gt;32 - 12 = 20&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$\textup{Number of Entries (Virtual Pages)} = 2^{\textup{Bits of VPN}}$
+&lt;ul&gt;
+&lt;li&gt;2^20 = 1M&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$\textup{Page Table Size = number of entries * size of each entry}$
+&lt;ul&gt;
+&lt;li&gt;2^20 * 4 bytes = 4Mb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;PTBR (page table base register)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Let MMU know where the page table for the current running process&lt;/li&gt;
+&lt;li&gt;Change contents in PTBR for context switch between process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Paging&lt;/strong&gt; &lt;strong&gt;Advantages&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No external fragmentation&lt;/li&gt;
+&lt;li&gt;Fast to allocate (sbrk) and free&lt;/li&gt;
+&lt;li&gt;Simple to swap-out portions of memory to disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Problems and Solutions&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Page table itself is stored in memory → Cache through TLB&lt;/li&gt;
+&lt;li&gt;Page table too big → change data structure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Caching through TLB:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TLB (Translation Lookaside Buffer):&lt;/strong&gt; Holds recent PTEs&lt;/li&gt;
+&lt;li&gt;VPN | PTE | Protection Bits&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hit&lt;/strong&gt;: VPN → PFN translation is in TLB (PFN | Offset)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Miss&lt;/strong&gt;: not in TLB, OS raise an exception, use PTBR fetch the PTE (slow), update TLB with new entry problem&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Performance depends strongly on workload&lt;/li&gt;
+&lt;li&gt;Miss rate = # TLB misses / # TLB lookups&lt;/li&gt;
+&lt;li&gt;Hit rate = # TLB Hits / # TLB lookups&lt;/li&gt;
+&lt;li&gt;smaller pages: worse hit rate&lt;/li&gt;
+&lt;li&gt;more iteration: stays same&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Workload Locality&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Spatial Locality&lt;/strong&gt;: future access will be to &lt;strong&gt;nearby&lt;/strong&gt; addresses
+&lt;ul&gt;
+&lt;li&gt;Repeatedly access nearby addresses on same page; need same VPN to PFN translation&lt;/li&gt;
+&lt;li&gt;Same TLB entry re-used&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temporal Locality&lt;/strong&gt;: future access will be repeats to the &lt;strong&gt;same&lt;/strong&gt; data as past access
+&lt;ul&gt;
+&lt;li&gt;Access same address near in future&lt;/li&gt;
+&lt;li&gt;Same TLB entry re-used sometime in future&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TLB for Code&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Code tends to be relatively &lt;strong&gt;sequential&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Procedure calls depend on &lt;strong&gt;temporal&lt;/strong&gt; locality&lt;/li&gt;
+&lt;li&gt;LRU is a good choice
+&lt;ul&gt;
+&lt;li&gt;problem: high missing rate for repeated data&lt;/li&gt;
+&lt;li&gt;other choices: random?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TLBs increase cost of context switches&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Flush TLB on each context switch (privileged instruction)
+&lt;ol&gt;
+&lt;li&gt;problem: lose all recently cached translations, increases miss rate&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Track which TLB entries are for which process
+&lt;ol&gt;
+&lt;li&gt;Address Space Identifier (ASID) – similar to PID&lt;/li&gt;
+&lt;li&gt;Tag each TLB entry with 8-bit ASID&lt;/li&gt;
+&lt;li&gt;Must match ASID for TLB entry to be used&lt;/li&gt;
+&lt;li&gt;problem:
+&lt;ol&gt;
+&lt;li&gt;Context switches are &lt;strong&gt;expensive&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;other processes “pollute” TLB&lt;/li&gt;
+&lt;li&gt;Architectures can have multiple TLBs&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Combine Paging and Segmentation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Why that large? Linear page tables must allocate PTE for each page in address space&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each segment has a page table&lt;/li&gt;
+&lt;li&gt;Each segment tracks base (physical addr.) and bounds of the &lt;strong&gt;page table&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Pros:
+&lt;ul&gt;
+&lt;li&gt;Pro for Segment:
+&lt;ul&gt;
+&lt;li&gt;Decreases size of page tables (only need PTEs for allocated portions)&lt;/li&gt;
+&lt;li&gt;If segment not allocated, no need for page table&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pro of Pages:
+&lt;ul&gt;
+&lt;li&gt;No external fragmentation&lt;/li&gt;
+&lt;li&gt;Segments can grow without any compaction or page movement&lt;/li&gt;
+&lt;li&gt;Can run process when some pages are swapped to disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Combine:
+&lt;ul&gt;
+&lt;li&gt;Increases flexibility of sharing: Share either single page or entire segment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cons
+&lt;ul&gt;
+&lt;li&gt;Page table has to be contiguous, still large&lt;/li&gt;
+&lt;li&gt;Not easy to grow segment because of reallocating the whole page table&lt;/li&gt;
+&lt;li&gt;Fragmentation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Multi-Level Page Table&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Idea:&lt;/strong&gt; Page the page tables&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Creates multiple levels of page tables
+&lt;ul&gt;
+&lt;li&gt;Outer level is called &lt;strong&gt;page directory&lt;/strong&gt; (per process)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Only allocate portion of page table if at least one of its pages is &lt;strong&gt;in use&lt;/strong&gt; (valid)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;page size = number PTE * PTE size&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;e.g. PTE size = 4bytes, page size = 4kb, PTEs (inner pages) = 4kb / 4bytes = 1024 entries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;page directory (outer) bits = address space - page offset - num PTE&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;e.g. addr space = 30, page size = 4kb, outer bits = 30 - 12 - 10 = 8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem:&lt;/strong&gt; page directories (outer level) may not fit in a page&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solution:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Split page directories into pieces&lt;/li&gt;
+&lt;li&gt;Use another page directory to refer to the page directory pieces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Inverted Page Tables&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Find possible matches entries by hashing VPN+ASID&lt;/li&gt;
+&lt;li&gt;Smaller number of entries to search for exact match&lt;/li&gt;
+&lt;li&gt;Still requires software-controlled TLB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SWAPPING MEMORY&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Shared Memory&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Exploit level of indirection between VA and PA&lt;/li&gt;
+&lt;li&gt;Regions of two separate processes’ address spaces map to the same physical pages
+&lt;ul&gt;
+&lt;li&gt;read/write: access to share data&lt;/li&gt;
+&lt;li&gt;execute: shared libraries!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Separate PTEs per process
+&lt;ul&gt;
+&lt;li&gt;Easy to provide different access privileges&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Copy-on-write (COW)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Do not copy all pages; rather share the mappings&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Allows sharing of pages before changes are made&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Child process&lt;/p&gt;
+&lt;p&gt;– Read-only mapping&lt;/p&gt;
+&lt;p&gt;– On a write, protection fault occurs; copy page and resume&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Allows doing fork() very efficiently&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Leverage locality of reference within processes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spatial: reference memory addresses &lt;strong&gt;near&lt;/strong&gt; previously referenced addresses&lt;/li&gt;
+&lt;li&gt;Temporal: reference memory addresses that have referenced in the &lt;strong&gt;past&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Processes spend majority of time in a small portion of their code
+&lt;ul&gt;
+&lt;li&gt;Estimate: 90% of time in 10% of code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Idea:&lt;/strong&gt; OS keeps unreferenced pages on disk (HDD or SSD)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Swap relies on key properties of user processes (workload) and machine architecture (hardware)&lt;/li&gt;
+&lt;li&gt;Slower, cheaper backing store than memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Requirements:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS must have a &lt;strong&gt;mechanism&lt;/strong&gt; to identify location of each page in address space in memory or on disk&lt;/li&gt;
+&lt;li&gt;OS must have a &lt;strong&gt;policy&lt;/strong&gt; for determining which pages live in memory and which
+on disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Mechanism:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;mapping locations&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Physical main memory: Small capacity, fast performance, expensive cost&lt;/li&gt;
+&lt;li&gt;Disk (backing store): Large capacity, slow performance, inexpensive&lt;/li&gt;
+&lt;li&gt;Nothing (error): Infinite size, infinitely fast, no cost&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;extra bits&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Permissions (r/w), valid, present, dirty in every PTE&lt;/li&gt;
+&lt;li&gt;Page in memory: present bit set&lt;/li&gt;
+&lt;li&gt;Page on disk: present bit cleared
+&lt;ul&gt;
+&lt;li&gt;PTE points to block on disk&lt;/li&gt;
+&lt;li&gt;Causes trap into OS when page is referenced (page fault)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Page in memory, but in-memory contents don’t match those on disk:
+dirty bit set&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Swapping Policies:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;OS have two decisions to make:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Page selection&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Demand paging&lt;/strong&gt;: Load page only when page fault occurs&lt;/p&gt;
+&lt;p&gt;– Intuition: Wait until page must absolutely be in memory
+– When process starts: No pages are loaded in memory
+– Problems: Pay cost of page fault for every newly accessed page&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prepaging&lt;/strong&gt; (anticipatory, prefetching): Load page before referenced&lt;/p&gt;
+&lt;p&gt;– OS predicts future accesses (oracle) and brings pages into memory early
+– Works well for some access patterns (e.g., sequential)
+– Problems: Mispredictions – needed v/s not-needed&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Hints&lt;/strong&gt;: Combine above with user-supplied hints about page references&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Page Replacement&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Optimal&lt;/strong&gt; (OPT): Replace page not will not be used for longest time in future
+&lt;ul&gt;
+&lt;li&gt;pros: Guaranteed to minimize number of page faults&lt;/li&gt;
+&lt;li&gt;cons: not practical&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FIFO&lt;/strong&gt; (First-in-First-Out)
+&lt;ul&gt;
+&lt;li&gt;pro: Fair: All pages receive equal residency; Easy to implement; Usually have fewer page faults&lt;/li&gt;
+&lt;li&gt;con: Some pages may always be needed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LRU&lt;/strong&gt; (Least-Recently-Used)
+&lt;ul&gt;
+&lt;li&gt;Use past to predict the future&lt;/li&gt;
+&lt;li&gt;pro: With locality, LRU approximates OPT; Guaranteed to have fewer (or same number of) page faults; small memory subset for large memory; small cache useful for hardware&lt;/li&gt;
+&lt;li&gt;cons: Does not handle all workloads well, not easy to implement, need tracks; does not consider &lt;strong&gt;frequency&lt;/strong&gt; of accesses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LFU&lt;/strong&gt; (Least-Frequently-Used)
+&lt;ul&gt;
+&lt;li&gt;Trade-Off: We need to store more data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Clock
+&lt;ul&gt;
+&lt;li&gt;Keep &lt;strong&gt;use (or reference) bit&lt;/strong&gt; for each page frame&lt;/li&gt;
+&lt;li&gt;When page is referenced: set use bit&lt;/li&gt;
+&lt;li&gt;Page replacement: Look for page with &lt;strong&gt;use bit cleared&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Implementation:
+• Keep pointer to last examined page frame
+• Traverse pages in circular buffer
+• Clear use bits as we are searching
+• Stop when find page with already cleared use bit, replace this page&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MRU (Most-Recently-Used)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Random (Evict randomly-chosen entry)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;#1 Update Shared Data&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;use locks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;#2 Ordering&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;something to happened before continuing → use conditional variables
+&lt;ul&gt;
+&lt;li&gt;wait → puts caller to sleep, releases lock&lt;/li&gt;
+&lt;li&gt;signal → wake one waiting thread (if one is waiting in a &lt;strong&gt;Queue&lt;/strong&gt; of waiting threads)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Producer and consumer problem (Bounded Buffer Problem)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Final Review</title>
+      <link>https://x12hengyu.github.io/notes/537os/2/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://x12hengyu.github.io/notes/537os/2/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Deadlock:&lt;/strong&gt; Deadlocks can only happen when these four conditions hold:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;mutual exclusion&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Threads claim exclusive control of resources that they require&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Strategy:&lt;/strong&gt; Eliminate locks!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hold-and-wait&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Threads hold resources while waiting for additional resources&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Strategy:&lt;/strong&gt; Acquire all locks atomically, Can release locks over time, but cannot acquire again until all have been released&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How&lt;/strong&gt;: Use a meta lock&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Drawbacks&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Must know ahead of time which locks will be needed&lt;/li&gt;
+&lt;li&gt;Must be conservative (acquire any lock possibly needed)&lt;/li&gt;
+&lt;li&gt;Degenerates to just having one big lock (reduces concurrency)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;no preemption&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Resources (e.g., locks) cannot be forcibly removed from other threads&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Strategy:&lt;/strong&gt; if thread can not get what it wants, release what it holds&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Drawbacks:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Potential Livelock:&lt;/strong&gt; No processes make progress, but state of involved processes constantly changes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Classic solution:&lt;/strong&gt; Exponential random back-off&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;circular wait&lt;/p&gt;
+&lt;p&gt;Circular chain that each thread holds a resource (e.g., lock) requested by next thread in chain&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; Lock Ordering in Xv6&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a lock on the directory&lt;/li&gt;
+&lt;li&gt;a lock on the new file’s inode&lt;/li&gt;
+&lt;li&gt;a lock on a disk block buffer&lt;/li&gt;
+&lt;li&gt;idelock&lt;/li&gt;
+&lt;li&gt;ptable.lock&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Practical Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Decide which locks must be acquired before others&lt;/li&gt;
+&lt;li&gt;If A before B, never acquire A if B is already held!&lt;/li&gt;
+&lt;li&gt;Document and write code accordingly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Concurrency:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Persistence:&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;io&#34;&gt;&lt;strong&gt;I/O&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-caption&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./imgs/Screen_Shot_2022-12-21_at_22.05.23.png&#34; alt=&#34;Screen Shot 2022-12-21 at 22.05.23.png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      caption
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;I&lt;strong&gt;nterface&lt;/strong&gt;: present to the rest of the system, and system software can control the operations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Internal&lt;/strong&gt;: implement the abstraction presented.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Status&lt;/strong&gt;: read to see the current status of the device;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Command&lt;/strong&gt;: tell the device to perform a certain task;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Data&lt;/strong&gt;: pass data to the device, or get data from the device.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Steps&lt;/strong&gt;: polling for status ready→OS send data→OS send command→polling for status finished&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Approach 1:&lt;/strong&gt; Special I/O instructions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Addition to the CPU’s instruction set that allows accessing hardware&lt;/li&gt;
+&lt;li&gt;e.g, IN and OUT in x86&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Approach 2:&lt;/strong&gt; Memory-Mapped I/O&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Device registers are mapped into memory&lt;/li&gt;
+&lt;li&gt;OS can write to device registers like to any other memory location&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Not&lt;/em&gt; the same as mmap!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Problems&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Polling waste CPU time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Data movement is very CPU intensive&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Solution 1: SPIN-free Device Access&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instead of Polling, go to sleep&lt;/li&gt;
+&lt;li&gt;Process state changes to BLOCKED&lt;/li&gt;
+&lt;li&gt;Device notifies when it is done using an interrupt&lt;/li&gt;
+&lt;li&gt;Problems:
+&lt;ul&gt;
+&lt;li&gt;If device is very fast, we get very frequent interrupts&lt;/li&gt;
+&lt;li&gt;Leads to context switch overhead&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Solution 2: DMA (Direct Memory Access)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;OS telling DMA engine where the data in memory, how much data to copy, and which device to send. At that point, the OS is done with the transfer and can proceed with other work.&lt;/p&gt;
+&lt;p&gt;DMA is complete raise an interrupt.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faster than copying to CPU and then to disk&lt;/li&gt;
+&lt;li&gt;CPU can do other things while data is being moved&lt;/li&gt;
+&lt;li&gt;Requires specialized hardware&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;DISK&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Platter:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2-sided, A drive can have multiple platters, read or written&lt;/li&gt;
+&lt;li&gt;Rotates track at fixed speeds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Track&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Split into fixed-size sectors (often 512 bytes),&lt;/li&gt;
+&lt;li&gt;Contain redundant encoding to recover from corrupted bits&lt;/li&gt;
+&lt;li&gt;exposed to the OS as a linear array&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Spindle:&lt;/strong&gt; spins the platter around at a constant fixed rate with unit &lt;strong&gt;Rotations Per Minute.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Disk Arm + Read/write Head:&lt;/strong&gt; Moves between tracks of the platter&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Controller&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;executes operations stored in command buffer&lt;/li&gt;
+&lt;li&gt;Writes output to status or data registers&lt;/li&gt;
+&lt;li&gt;translates track and sector location accesses to disk into internal actions&lt;/li&gt;
+&lt;li&gt;track of multiple actions at once&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Access speed&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;seek:&lt;/strong&gt; move disk arm to correct track&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;wait (rotation):&lt;/strong&gt; wait for sector to rotate under arm&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;transfer:&lt;/strong&gt; read/write data&lt;/p&gt;
+&lt;p&gt;e.g. Read one sector (512B) avg. seek: 7ms avg. rotate: 3ms avg. transfer: ~0ms (200Mb/s) throughput is 512b/10ms ≈ 50kb/s&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Slow!!!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Random I/O are dominated by seek and rotation&lt;/li&gt;
+&lt;li&gt;Sequential accesses can be much faster&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Disk Scheduling&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Goal:&lt;/strong&gt; Maximize throughput by minimizing &lt;strong&gt;seek&lt;/strong&gt; and &lt;strong&gt;rotation&lt;/strong&gt; times&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Duration of each access is known&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FIFO (First-in-first-out)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shortest-Seek First (SSTF&lt;/strong&gt;): To maximize throughput pick next operation with &lt;strong&gt;smallest seek&lt;/strong&gt; time, Can be implemented by the OS as &lt;strong&gt;nearest block first&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Does not account for &lt;strong&gt;rotation&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Disk arm might stay on same track for a long time&lt;/li&gt;
+&lt;li&gt;Some operations could starve&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SCAN or “Elevator”, F-SCAN for “Freeze”, C-SCAN for “Circular”&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Does not take rotation time into account, only &lt;strong&gt;seek&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Better starvation free “Shortest-Job First” algorithms exist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shortest Positioning/Access Time First (SPTF/SATF)&lt;/strong&gt;: both &lt;strong&gt;seek and rotate&lt;/strong&gt; accounted.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;JBOD&lt;/strong&gt;: &lt;strong&gt;J&lt;/strong&gt;ust a &lt;strong&gt;B&lt;/strong&gt;unch &lt;strong&gt;O&lt;/strong&gt;f &lt;strong&gt;D&lt;/strong&gt;isks&lt;/p&gt;
+&lt;p&gt;Application stores different files on different file systems&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Disadvantages:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application must manage multiple devices&lt;/li&gt;
+&lt;li&gt;Not portable across different system configurations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;RAID&lt;/strong&gt;: &lt;strong&gt;R&lt;/strong&gt;edundant &lt;strong&gt;A&lt;/strong&gt;rray of &lt;strong&gt;I&lt;/strong&gt;nexpensive &lt;strong&gt;D&lt;/strong&gt;isks&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;transparent and easy to deploy&lt;/li&gt;
+&lt;li&gt;Logical disk gives capacity, performance, and reliability&lt;/li&gt;
+&lt;li&gt;Economies of scale&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;raid-mapping&#34;&gt;&lt;strong&gt;RAID Mapping&lt;/strong&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Dynamic&lt;/strong&gt; mapping (page table approach)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Logical x sometimes maps to physical y and
+sometimes z&lt;/li&gt;
+&lt;li&gt;Use data structure (array, hash table, tree)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Static&lt;/strong&gt; mapping (RAID approach)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Logical x always maps to physical&lt;/li&gt;
+&lt;li&gt;Uses simple math; avoids extra look-ups&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Redundancy:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Increase number of copies: Improves reliability (and maybe performance)&lt;/p&gt;
+&lt;p&gt;Decrease number of copies: Improves space efficiency&lt;/p&gt;
+&lt;p&gt;Failure mode: Assume disks are &lt;strong&gt;fail-stop&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. RAID Decisions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Levels: 0, 1, 4, 5&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Workloads&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reads&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One operation (for latency)&lt;/li&gt;
+&lt;li&gt;Steady-state I/O (for throughput or bandwidth): Sequential or Random&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Writes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One operation (for latency)&lt;/li&gt;
+&lt;li&gt;Steady-state I/O (for throughput or bandwidth): Sequential or Random&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;3. Metrics&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Capacity&lt;/strong&gt;: how much space is available to higher levels?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reliability&lt;/strong&gt;: how many disks can RAID safely lose? (assume fail stop!)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Performance&lt;/strong&gt;: how long does each workload take?&lt;/p&gt;
+&lt;p&gt;N := total number of physical disks
+B := capacity of each disk (e.g., 500 GB)
+S := sequential throughput of each disk (e.g., 100 MB/s)
+R := random throughput of each disk (e.g., 5 MB/s)
+T := latency of one small I/O operation&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;././imgs/567781671688892_.pic.jpg&#34; alt=&#34;567781671688892_.pic.jpg&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Systen Crush:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Consistent-Update Problem:&lt;/strong&gt; We want writes on both/all disk to be atomic&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solution:&lt;/strong&gt; Use non-volatile RAM in RAID controller
+&lt;ul&gt;
+&lt;li&gt;Can replay to ensure all copies are updated&lt;/li&gt;
+&lt;li&gt;Software RAID controllers (e.g.,Linux md) don’t have this option&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;RAID 0: Striping&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Optimizes for &lt;strong&gt;capacity&lt;/strong&gt;. Does not provide &lt;strong&gt;redundancy&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Any failure cause data loss&lt;/li&gt;
+&lt;li&gt;Disk = A % disk_count   Offset = A / disk_count&lt;/li&gt;
+&lt;li&gt;RAID-0 is always fastest and has best capacity (but at cost of reliability)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;RAID 1: Mirroring&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Keep two copies of every block&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAID-1 can always handle 1 disk failure&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAID 1+0&lt;/strong&gt;: Combines mirroring and striping
+&lt;ul&gt;
+&lt;li&gt;Can handle at least 1 and up to N/2 failures&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;RAID 4: Parity&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compromise between RAID-0 and RAID-1&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;one&lt;/strong&gt; disk for &lt;strong&gt;parity&lt;/strong&gt; (form of redundancy, but not full replication)&lt;/li&gt;
+&lt;li&gt;Treat sectors across disks in a stripe as equation&lt;/li&gt;
+&lt;li&gt;Data on bad disk is the unknown in equation&lt;/li&gt;
+&lt;li&gt;Parity calculated over data blocks in stripe: Parity0 = Data0 &lt;strong&gt;XOR&lt;/strong&gt; Data1 &lt;strong&gt;XOR&lt;/strong&gt; Data2&lt;/li&gt;
+&lt;li&gt;Reconstruct blocks of lost disk by taking XOR: Data1 = Data0 &lt;strong&gt;XOR&lt;/strong&gt; Data2 &lt;strong&gt;XOR&lt;/strong&gt; Parity0&lt;/li&gt;
+&lt;li&gt;Update Parity:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Slow approach:&lt;/strong&gt; read all other N-2 blocks in stripe and calculate new parity&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Faster approach:&lt;/strong&gt; new_par = old_val XOR new_val XOR old_par&lt;/li&gt;
+&lt;li&gt;2 reads and 2 writes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;RAID 5: Rotated Parity&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rotate parity across different disks&lt;/li&gt;
+&lt;li&gt;Sector number get shifted left (or right)&lt;/li&gt;
+&lt;li&gt;RAID-5 is strictly better than RAID-4&lt;/li&gt;
+&lt;li&gt;RAID-1 better than RAID-5 for random workloads&lt;/li&gt;
+&lt;li&gt;RAID-5 better than RAID-1 for sequential workloads&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;file-system-api&#34;&gt;&lt;strong&gt;FILE SYSTEM API&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;File Names:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;inode number&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Each file has exactly one unique inode number&lt;/li&gt;
+&lt;li&gt;Different file systems may use the same number&lt;/li&gt;
+&lt;li&gt;Numbers may be recycled after deletes&lt;/li&gt;
+&lt;li&gt;Drawbacks:
+&lt;ol&gt;
+&lt;li&gt;names hard to remember&lt;/li&gt;
+&lt;li&gt;no organization or meaning to inode numbers&lt;/li&gt;
+&lt;li&gt;semantics of offset across multiple processes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;paths&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Directory Tree instead of single root directory&lt;/li&gt;
+&lt;li&gt;File name (String names) needs to be unique only within a directory&lt;/li&gt;
+&lt;li&gt;Still interact with inode numbers&lt;/li&gt;
+&lt;li&gt;Store &lt;em&gt;path-to-inode&lt;/em&gt; mappings in Directory&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Drawbacks&lt;/strong&gt;: Expensive traversal&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;file descriptor (FD)&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Do expensive traversal once (open file)&lt;/li&gt;
+&lt;li&gt;Store inode in descriptor object (kept in memory)&lt;/li&gt;
+&lt;li&gt;Do reads/writes via descriptor, which tracks offset&lt;/li&gt;
+&lt;li&gt;Advantages:
+&lt;ol&gt;
+&lt;li&gt;human-readable names&lt;/li&gt;
+&lt;li&gt;hierarchical&lt;/li&gt;
+&lt;li&gt;traverse once&lt;/li&gt;
+&lt;li&gt;offsets precisely defined&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;File functions:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;**open()**&lt;/code&gt;: Create new files or open existing files&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;**read()/write()**&lt;/code&gt;: Access file contents&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;**mkdir()**&lt;/code&gt;: Create directories&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;lseek()&lt;/code&gt;&lt;/strong&gt;: SEEK_SET, &lt;strong&gt;set&lt;/strong&gt; offset ****to offset bytes; SEEK_CUR, set offset to cur location &lt;strong&gt;plus&lt;/strong&gt; offset; SEEK_END, set offset to &lt;strong&gt;size&lt;/strong&gt; plus offset&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./imgs/Screen_Shot_2022-12-22_at_01.56.27.png&#34; alt=&#34;Screen Shot 2022-12-22 at 01.56.27.png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./imgs/Screen_Shot_2022-12-22_at_01.56.45.png&#34; alt=&#34;Screen Shot 2022-12-22 at 01.56.45.png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;fork()&lt;/code&gt;&lt;/strong&gt;: a parent creates a child and waits for it to complete. The child adjusts the current offset with lseek() and exits. The parent, after waiting for the child, checks the current offset and prints out its value.
+&lt;strong&gt;&lt;code&gt;unlink()&lt;/code&gt;&lt;/strong&gt;: path names are removed&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;close()&lt;/code&gt;&lt;/strong&gt;: FDs are removed or process are quit&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;fsync(int fd)&lt;/code&gt;:&lt;/strong&gt; forces buffers to flush from memory to disk, tells disk to flush its write cache, Makes data &lt;strong&gt;durable.&lt;/strong&gt; A successful close does not guarantee that the data has been successfully saved to disk, make sure use &lt;strong&gt;fsync(2)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;rename(char *old, char *new)&lt;/code&gt;:&lt;/strong&gt; deletes an old link to a file, creates a new link to a file, Just changes name of file, does not move (or copy) data&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hard Links:&lt;/strong&gt; another name for file&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;increase ref count when link added&lt;/li&gt;
+&lt;li&gt;does not remove file until ref count is 0&lt;/li&gt;
+&lt;li&gt;cannot hard link directories&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Soft Links:&lt;/strong&gt; Point to second path name&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;have new inode number&lt;/li&gt;
+&lt;li&gt;Set bit in inode designating “soft link”;&lt;/li&gt;
+&lt;li&gt;Interpret associated data as file name&lt;/li&gt;
+&lt;li&gt;possible to link to directories&lt;/li&gt;
+&lt;li&gt;does not change ref rount&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;File System&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Max # of files = max # of inodes = # of inode blocks * (sizeof(block)/sizeof(inode));&lt;/li&gt;
+&lt;li&gt;Inode table size = # of inode blocks * size of 1 block;&lt;/li&gt;
+&lt;li&gt;block = (inum * sizeof(inode)) / block size;&lt;/li&gt;
+&lt;li&gt;Sector # for fetching inode block = (block * block size + inodeStartAddr) or
+offset into inode region] / sector size = (inum * sizeof(inode) + inodeStartAddr) / sector size&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./imgs/Screen_Shot_2022-12-22_at_02.23.44.png&#34; alt=&#34;Screen Shot 2022-12-22 at 02.23.44.png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Superblock:&lt;/strong&gt; Parameters of the file system (e.g., how many inodes)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;i-bitmap:&lt;/strong&gt; Which inodes are in use?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;d-bitmap:&lt;/strong&gt; Which data blocks are in use?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FSCK and Journaling: Fix Inconsistencies&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FSCK&lt;/strong&gt; = file system checker&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Strategy:&lt;/strong&gt; run checker after reboot/crash, scan entire file sys, find inconsistencies btwn bitmaps and inode, fix mismatches (Slow)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;journaling&#34;&gt;&lt;strong&gt;Journaling&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Strategy&lt;/strong&gt;: Don’t delete any old info until all new info is safely on disk
+&lt;ul&gt;
+&lt;li&gt;Make a note of what needs to be written&lt;/li&gt;
+&lt;li&gt;After note is completely written, update file metadata and data&lt;/li&gt;
+&lt;li&gt;Remove note&lt;/li&gt;
+&lt;li&gt;If a note is not completely written, ignore note (old data still good)&lt;/li&gt;
+&lt;li&gt;If a note is completely written, &lt;em&gt;replay&lt;/em&gt; it to recover data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Journal:&lt;/strong&gt; Blocks designated to store notes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transaction:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TxB (“Begin Transaction”):&lt;/strong&gt; Holds unique id and blocks affected&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TxE (“End Transaction”):&lt;/strong&gt; Indicates transaction has committed&lt;/li&gt;
+&lt;li&gt;Set of writes that “belong together” (should execute atomically)&lt;/li&gt;
+&lt;li&gt;Last part of a transaction is its &lt;em&gt;commit block&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;Transaction is considered &lt;em&gt;committed&lt;/em&gt; after this block is written&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Checkpoint:&lt;/strong&gt; Writing to in-place metadata and data after commit&lt;/li&gt;
+&lt;li&gt;in real system:
+&lt;ul&gt;
+&lt;li&gt;Batch or group Transactions&lt;/li&gt;
+&lt;li&gt;For performance, many operations are placed in single transaction&lt;/li&gt;
+&lt;li&gt;Journal is large; treat as circular buffer&lt;/li&gt;
+&lt;li&gt;Checkpoint periodically&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimizations&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Barriers&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Before journal commit, ensure journal transaction entries complete&lt;/li&gt;
+&lt;li&gt;Before checkpoint, ensure journal commit complete&lt;/li&gt;
+&lt;li&gt;Before free journal, ensure checkpoint (in-place updates) complete&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In last transaction block, store &lt;strong&gt;checksum&lt;/strong&gt; of rest of transaction, During recovery: If checksum does not match, treat as not valid&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Batched updates:&lt;/strong&gt; If two files are created, all things write twice, mark dirty in memory, update in one transaction&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delay checkpoints&lt;/strong&gt; some times to avoid system crush after journal write&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Circular Log&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Difficulty:&lt;/strong&gt; need to reuse journal space&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solution:&lt;/strong&gt; keep many transactions for un-checkpointed data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Avoid Journal Write Disk Twice
+&lt;ul&gt;
+&lt;li&gt;Journal all metadata, including superblock, bitmaps, inodes, indirects, directories&lt;/li&gt;
+&lt;li&gt;Guarantees metadata is consistent if crash occurs&lt;/li&gt;
+&lt;li&gt;Will not leak space or re-allocate blocks to multiple files&lt;/li&gt;
+&lt;li&gt;For regular user data, write it to in-place location whenever convenient&lt;/li&gt;
+&lt;li&gt;Files may contain &lt;strong&gt;garbage&lt;/strong&gt; (partial old, partial new) if we crash and recover&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Metadata Journaling&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;user data does not written to the journal&lt;/li&gt;
+&lt;li&gt;data write before the transaction commit block to avoid garbage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Previous Solutions:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Contiguous allocation:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Allocate files like segmented memory (give each disk sector a number from 0 up). Keep a free list of unused areas of the disk. When creating a file, make the user specify its length, allocate all the space at once. Descriptor contains location and size.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Advantages: easy access, both sequential and random. Simple. Few seeks.&lt;/li&gt;
+&lt;li&gt;Drawbacks: &lt;strong&gt;horrible fragmentation&lt;/strong&gt; will preclude large files, hard to predict needs. With interleaved user requests, still cannot eliminate all seeks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Linked Files:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In the file descriptor, just keep pointer to first block. In each block of file keep pointer to next block. Can also keep a linked list of free blocks for the free list.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Advantages: Files can be extended, &lt;strong&gt;no fragmentation problems&lt;/strong&gt;. Sequential Access is easy: just chase links. No extra space for the free list.&lt;/li&gt;
+&lt;li&gt;Drawbacks: Random access is virtually impossible. &lt;strong&gt;Lots of seeking&lt;/strong&gt;, even in sequential access. Pointer to next block occupies same block as data.&lt;/li&gt;
+&lt;li&gt;Example: FAT (MSDOS) file system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Array of Block Pointers (Extents):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Allocate an array to hold pointers to all the blocks, but do not allocate the blocks. Then fill in the pointers dynamically using a free list.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Advantages: Both sequential and random access are easy.&lt;/li&gt;
+&lt;li&gt;Drawbacks: still have to set maximum file size, and there will be &lt;strong&gt;lots of seeks&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DOS FAT File File System:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A single File Allocation Table (FAT) that combines free list info and file allocation info. In file descriptor, keep pointer to first block. A FAT table entry contains either (1) the block number of the next block in the file, (2) a distinguished &amp;ldquo;end of file&amp;rdquo; (eof) value, or (3) a distinguished &amp;ldquo;free&amp;rdquo; value.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Advantages &amp;amp; Disadvantages: similar to those mentioned above for linked file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;How are file systems used?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Most files are small.&lt;/li&gt;
+&lt;li&gt;Much of the disk is allocated to large files.&lt;/li&gt;
+&lt;li&gt;Many of the I/O&amp;rsquo;s are made to large files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thus, the per-file cost must be low, but the performance of large files must be good. Must allow reasonably fast random access, extensibility.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;file descriptor&lt;/strong&gt;:&lt;/em&gt; The data structure that describes the contents of file. (like inode and MFTE)&lt;/p&gt;
+&lt;p&gt;The file descriptor information stored on disk to make sure it will stay around without OS.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In Unix, all the descriptors are stored in a &lt;strong&gt;fixed size array on disk&lt;/strong&gt;. The descriptors also contain &lt;strong&gt;protection&lt;/strong&gt; and &lt;strong&gt;accounting&lt;/strong&gt; information.&lt;/li&gt;
+&lt;li&gt;A special area of disk is used for this (disk contains two parts: the &lt;strong&gt;fixed-size descriptor array&lt;/strong&gt;, and the &lt;strong&gt;remainder&lt;/strong&gt;, which is allocated for data and indirect blocks).&lt;/li&gt;
+&lt;li&gt;The size of the descriptor array is determined when the disk is initialized, and cannot be changed. In Unix, the descriptor is called an &lt;em&gt;&lt;strong&gt;i-node&lt;/strong&gt;&lt;/em&gt;, and its index in the array is called its &lt;em&gt;i-number&lt;/em&gt;. Internally, the OS uses the i-number to refer to the file.&lt;/li&gt;
+&lt;li&gt;When a file is open, its descriptor is kept in main memory. When the file is closed, the descriptor is stored back to disk.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Classic Unix I-Node:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;File descriptors: 13 block pointers. The first 10 point to data blocks, the next three to indirect, doubly-indirect, and triply-indirect blocks (256 pointers in each indirect block). Maximum file length is fixed, but large. Descriptor space is not allocated until needed.&lt;/li&gt;
+&lt;li&gt;Free blocks: stored on a free list in no particular order.&lt;/li&gt;
+&lt;li&gt;Advantages: simple, easy to implement, incremental expansion, easy access to small files.&lt;/li&gt;
+&lt;li&gt;Drawbacks:
+&lt;ul&gt;
+&lt;li&gt;Indirect mechanism results in &lt;strong&gt;inefficient access to large files&lt;/strong&gt;: 3 descriptor ops for each real operation. A cache is used, but this takes up main memory space.&lt;/li&gt;
+&lt;li&gt;Block-by-block organization of free list means that that file data gets spread around the disk.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;The Demos File System:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Allocates files contiguously, has more compact file descriptors, uses more CPU time.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

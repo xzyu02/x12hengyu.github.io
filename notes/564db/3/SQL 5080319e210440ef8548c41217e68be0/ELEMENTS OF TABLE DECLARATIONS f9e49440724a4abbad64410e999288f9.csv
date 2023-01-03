@@ -1,0 +1,9 @@
+﻿Name,Definition
+CHAR(size),"A FIXED length string (can contain letters, numbers, and special characters). The size parameter specifies the column length in characters - can be from 0 to 255. Default is 1"
+VARCHAR(size),"A VARIABLE length string (can contain letters, numbers, and special characters). The size parameter specifies the maximum column length in characters - can be from 0 to 65535"
+INT(size) or INTEGER(size),A medium integer. Signed range is from -2147483648 to 2147483647. Unsigned range is from 0 to 4294967295. The size parameter specifies the maximum display width (which is 255)
+REAL or FLOAT,
+,
+DATE,‘yyyy-mm-dd’
+TIME,‘hh:mm:ss’
+,

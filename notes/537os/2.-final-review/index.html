@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: January 2, 2023 --><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Xizheng (Hugh) Yu" />
+
+
+
+
+
+  
+
+<meta name="description" content="Deadlock: Deadlocks can only happen when these four conditions hold:
+mutual exclusion
+Problem: Threads claim exclusive control of resources that they require
+Strategy: Eliminate locks!
+hold-and-wait
+Problem: Threads hold resources while waiting for additional resources" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://x12hengyu.github.io/notes/537os/2.-final-review/" />
+<link rel="canonical" href="https://x12hengyu.github.io/notes/537os/2.-final-review/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:image" content="https://x12hengyu.github.io/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_512x512_fill_lanczos_center_3.png" />
+<meta property="og:site_name" content="Xizheng Yu" />
+<meta property="og:url" content="https://x12hengyu.github.io/notes/537os/2.-final-review/" />
+<meta property="og:title" content="Final Review | Xizheng Yu" />
+<meta property="og:description" content="Deadlock: Deadlocks can only happen when these four conditions hold:
+mutual exclusion
+Problem: Threads claim exclusive control of resources that they require
+Strategy: Eliminate locks!
+hold-and-wait
+Problem: Threads hold resources while waiting for additional resources" /><meta property="og:image" content="https://x12hengyu.github.io/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2018-09-09T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2018-09-09T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Final Review | Xizheng Yu</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="f3fe5874ef7ec323ae54cbeee13e615b" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Xizheng Yu</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Xizheng Yu</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#publication"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Notes</span><span class="caret"></span>
+            </a>
+            <div class="dropdown-menu">
+              
+                <a class="dropdown-item" href="/notes/537os"><span>CS537 Operating System</span></a>
+              
+            </div>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    
+
+
+
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      <form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-md-3 w-100" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <div class="d-flex">
+      <span class="d-md-none pl-1 flex-grow-1 text-left overflow-hidden">
+        
+        
+          CS-537: Introduction to Operating Systems
+        
+      </span>
+      <span><i class="fas fa-chevron-down"></i></span>
+    </div>
+  </button>
+
+  
+  <button class="form-control sidebar-search js-search d-none d-md-flex">
+    <i class="fas fa-search pr-2"></i>
+    <span class="sidebar-search-text">Search...</span>
+    <span class="sidebar-search-shortcut">/</span>
+  </button>
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+
+    
+      
+
+      <ul class="nav docs-sidenav">
+        <li><a href="/notes/"><i class="fas fa-arrow-left pr-1"></i>Notes</a></li>
+      </ul>
+
+      
+      
+        
+          
+        
+      
+
+
+  
+    
+    
+    
+    
+      
+    
+    
+
+    
+      <div class="docs-toc-item">
+        <a class="docs-toc-link " href="/notes/537os/">CS-537: Introduction to Operating Systems</a>
+    
+      
+        <ul class="nav docs-sidenav">
+      
+
+
+  <li class="active"><a href="/notes/537os/2.-final-review/">Final Review</a></li>
+
+
+
+  <li class=""><a href="/notes/537os/1.-midterm-review/">Midterm Review</a></li>
+
+      
+        </ul>
+      
+    
+
+    
+      </div>
+    
+
+    
+  
+</nav>
+
+    </div>
+
+    
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents"></nav>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <div class="docs-article-container">
+        
+      </div>
+
+      
+      
+      
+
+      <div class="docs-article-container">
+        
+        <h1>Final Review</h1>
+
+        <article class="article-style">
+
+          
+          
+
+          <p><strong>Deadlock:</strong> Deadlocks can only happen when these four conditions hold:</p>
+<ol>
+<li>
+<p>mutual exclusion</p>
+<p><strong>Problem:</strong> Threads claim exclusive control of resources that they require</p>
+<p><strong>Strategy:</strong> Eliminate locks!</p>
+</li>
+<li>
+<p>hold-and-wait</p>
+<p><strong>Problem:</strong> Threads hold resources while waiting for additional resources</p>
+<p><strong>Strategy:</strong> Acquire all locks atomically, Can release locks over time, but cannot acquire again until all have been released</p>
+<p><strong>How</strong>: Use a meta lock</p>
+<p><strong>Drawbacks</strong>:</p>
+<ul>
+<li>Must know ahead of time which locks will be needed</li>
+<li>Must be conservative (acquire any lock possibly needed)</li>
+<li>Degenerates to just having one big lock (reduces concurrency)</li>
+</ul>
+</li>
+<li>
+<p>no preemption</p>
+<p><strong>Problem:</strong> Resources (e.g., locks) cannot be forcibly removed from other threads</p>
+<p><strong>Strategy:</strong> if thread can not get what it wants, release what it holds</p>
+<p><strong>Drawbacks:</strong></p>
+<ul>
+<li><strong>Potential Livelock:</strong> No processes make progress, but state of involved processes constantly changes</li>
+<li><strong>Classic solution:</strong> Exponential random back-off</li>
+</ul>
+</li>
+<li>
+<p>circular wait</p>
+<p>Circular chain that each thread holds a resource (e.g., lock) requested by next thread in chain</p>
+<p><strong>Example:</strong> Lock Ordering in Xv6</p>
+<ul>
+<li>a lock on the directory</li>
+<li>a lock on the new file’s inode</li>
+<li>a lock on a disk block buffer</li>
+<li>idelock</li>
+<li>ptable.lock</li>
+</ul>
+<p><strong>Practical Solution:</strong></p>
+<ul>
+<li>Decide which locks must be acquired before others</li>
+<li>If A before B, never acquire A if B is already held!</li>
+<li>Document and write code accordingly</li>
+</ul>
+</li>
+</ol>
+<p><strong>Concurrency:</strong></p>
+<p><strong>Persistence:</strong></p>
+<p><strong>I/O</strong></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-12-21_at_22.05.23.png" alt="Screen Shot 2022-12-21 at 22.05.23.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>I<strong>nterface</strong>: present to the rest of the system, and system software can control the operations.</p>
+<p><strong>Internal</strong>: implement the abstraction presented.</p>
+<p><strong>Status</strong>: read to see the current status of the device;</p>
+<p><strong>Command</strong>: tell the device to perform a certain task;</p>
+<p><strong>Data</strong>: pass data to the device, or get data from the device.</p>
+<p><strong>Steps</strong>: polling for status ready→OS send data→OS send command→polling for status finished</p>
+<p><strong>Approach 1:</strong> Special I/O instructions</p>
+<ul>
+<li>Addition to the CPU’s instruction set that allows accessing hardware</li>
+<li>e.g, IN and OUT in x86</li>
+</ul>
+<p><strong>Approach 2:</strong> Memory-Mapped I/O</p>
+<ul>
+<li>Device registers are mapped into memory</li>
+<li>OS can write to device registers like to any other memory location</li>
+<li><em>Not</em> the same as mmap!</li>
+</ul>
+<p><strong>Problems</strong></p>
+<ol>
+<li>
+<p>Polling waste CPU time.</p>
+</li>
+<li>
+<p>Data movement is very CPU intensive</p>
+</li>
+</ol>
+<p><strong>Solution 1: SPIN-free Device Access</strong></p>
+<ul>
+<li>Instead of Polling, go to sleep</li>
+<li>Process state changes to BLOCKED</li>
+<li>Device notifies when it is done using an interrupt</li>
+<li>Problems:
+<ul>
+<li>If device is very fast, we get very frequent interrupts</li>
+<li>Leads to context switch overhead</li>
+</ul>
+</li>
+</ul>
+<p><strong>Solution 2: DMA (Direct Memory Access)</strong></p>
+<p>OS telling DMA engine where the data in memory, how much data to copy, and which device to send. At that point, the OS is done with the transfer and can proceed with other work.</p>
+<p>DMA is complete raise an interrupt.</p>
+<ul>
+<li>Faster than copying to CPU and then to disk</li>
+<li>CPU can do other things while data is being moved</li>
+<li>Requires specialized hardware</li>
+</ul>
+<p><strong>DISK</strong></p>
+<p><strong>Platter:</strong></p>
+<ul>
+<li>2-sided, A drive can have multiple platters, read or written</li>
+<li>Rotates track at fixed speeds</li>
+</ul>
+<p><strong>Track</strong>:</p>
+<ul>
+<li>Split into fixed-size sectors (often 512 bytes),</li>
+<li>Contain redundant encoding to recover from corrupted bits</li>
+<li>exposed to the OS as a linear array</li>
+</ul>
+<p><strong>Spindle:</strong> spins the platter around at a constant fixed rate with unit <strong>Rotations Per Minute.</strong></p>
+<p><strong>Disk Arm + Read/write Head:</strong> Moves between tracks of the platter</p>
+<p><strong>Controller</strong>:</p>
+<ul>
+<li>executes operations stored in command buffer</li>
+<li>Writes output to status or data registers</li>
+<li>translates track and sector location accesses to disk into internal actions</li>
+<li>track of multiple actions at once</li>
+</ul>
+<p><strong>Access speed</strong></p>
+<p><strong>seek:</strong> move disk arm to correct track</p>
+<p><strong>wait (rotation):</strong> wait for sector to rotate under arm</p>
+<p><strong>transfer:</strong> read/write data</p>
+<p>e.g. Read one sector (512B) avg. seek: 7ms avg. rotate: 3ms avg. transfer: ~0ms (200Mb/s) throughput is 512b/10ms ≈ 50kb/s</p>
+<p><strong>Slow!!!</strong></p>
+<ul>
+<li>Random I/O are dominated by seek and rotation</li>
+<li>Sequential accesses can be much faster</li>
+</ul>
+<p><strong>Disk Scheduling</strong></p>
+<p><strong>Goal:</strong> Maximize throughput by minimizing <strong>seek</strong> and <strong>rotation</strong> times</p>
+<ul>
+<li>Duration of each access is known</li>
+<li><strong>FIFO (First-in-first-out)</strong></li>
+<li><strong>Shortest-Seek First (SSTF</strong>): To maximize throughput pick next operation with <strong>smallest seek</strong> time, Can be implemented by the OS as <strong>nearest block first</strong>
+<ul>
+<li>Does not account for <strong>rotation</strong></li>
+<li>Disk arm might stay on same track for a long time</li>
+<li>Some operations could starve</li>
+</ul>
+</li>
+<li><strong>SCAN or “Elevator”, F-SCAN for “Freeze”, C-SCAN for “Circular”</strong>
+<ul>
+<li>Does not take rotation time into account, only <strong>seek</strong></li>
+<li>Better starvation free “Shortest-Job First” algorithms exist</li>
+</ul>
+</li>
+<li><strong>Shortest Positioning/Access Time First (SPTF/SATF)</strong>: both <strong>seek and rotate</strong> accounted.</li>
+</ul>
+<p><strong>JBOD</strong>: <strong>J</strong>ust a <strong>B</strong>unch <strong>O</strong>f <strong>D</strong>isks</p>
+<p>Application stores different files on different file systems</p>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Application must manage multiple devices</li>
+<li>Not portable across different system configurations</li>
+</ul>
+<p><strong>RAID</strong>: <strong>R</strong>edundant <strong>A</strong>rray of <strong>I</strong>nexpensive <strong>D</strong>isks</p>
+<ul>
+<li>transparent and easy to deploy</li>
+<li>Logical disk gives capacity, performance, and reliability</li>
+<li>Economies of scale</li>
+</ul>
+<p><strong>RAID Mapping</strong></p>
+<ol>
+<li><strong>Dynamic</strong> mapping (page table approach)</li>
+</ol>
+<ul>
+<li>Logical x sometimes maps to physical y and
+sometimes z</li>
+<li>Use data structure (array, hash table, tree)</li>
+</ul>
+<ol>
+<li><strong>Static</strong> mapping (RAID approach)</li>
+</ol>
+<ul>
+<li>Logical x always maps to physical</li>
+<li>Uses simple math; avoids extra look-ups</li>
+</ul>
+<p><strong>Redundancy:</strong></p>
+<p>Increase number of copies: Improves reliability (and maybe performance)</p>
+<p>Decrease number of copies: Improves space efficiency</p>
+<p>Failure mode: Assume disks are <strong>fail-stop</strong></p>
+<p><strong>1. RAID Decisions</strong></p>
+<p>Levels: 0, 1, 4, 5</p>
+<p><strong>2. Workloads</strong></p>
+<p><strong>Reads</strong></p>
+<ul>
+<li>One operation (for latency)</li>
+<li>Steady-state I/O (for throughput or bandwidth): Sequential or Random</li>
+</ul>
+<p><strong>Writes</strong></p>
+<ul>
+<li>One operation (for latency)</li>
+<li>Steady-state I/O (for throughput or bandwidth): Sequential or Random</li>
+</ul>
+<p><strong>3. Metrics</strong></p>
+<p><strong>Capacity</strong>: how much space is available to higher levels?</p>
+<p><strong>Reliability</strong>: how many disks can RAID safely lose? (assume fail stop!)</p>
+<p><strong>Performance</strong>: how long does each workload take?</p>
+<p>N := total number of physical disks
+B := capacity of each disk (e.g., 500 GB)
+S := sequential throughput of each disk (e.g., 100 MB/s)
+R := random throughput of each disk (e.g., 5 MB/s)
+T := latency of one small I/O operation</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/567781671688892_.pic.jpg" alt="567781671688892_.pic.jpg" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><strong>Systen Crush:</strong></p>
+<ul>
+<li><strong>Consistent-Update Problem:</strong> We want writes on both/all disk to be atomic</li>
+<li><strong>Solution:</strong> Use non-volatile RAM in RAID controller
+<ul>
+<li>Can replay to ensure all copies are updated</li>
+<li>Software RAID controllers (e.g.,Linux md) don’t have this option</li>
+</ul>
+</li>
+</ul>
+<p><strong>RAID 0: Striping</strong></p>
+<ul>
+<li>Optimizes for <strong>capacity</strong>. Does not provide <strong>redundancy</strong>.</li>
+<li>Any failure cause data loss</li>
+<li>Disk = A % disk_count   Offset = A / disk_count</li>
+<li>RAID-0 is always fastest and has best capacity (but at cost of reliability)</li>
+</ul>
+<p><strong>RAID 1: Mirroring</strong></p>
+<ul>
+<li>Keep two copies of every block</li>
+<li><strong>RAID-1 can always handle 1 disk failure</strong></li>
+<li><strong>RAID 1+0</strong>: Combines mirroring and striping
+<ul>
+<li>Can handle at least 1 and up to N/2 failures</li>
+</ul>
+</li>
+</ul>
+<p><strong>RAID 4: Parity</strong></p>
+<ul>
+<li>Compromise between RAID-0 and RAID-1</li>
+<li>Use <strong>one</strong> disk for <strong>parity</strong> (form of redundancy, but not full replication)</li>
+<li>Treat sectors across disks in a stripe as equation</li>
+<li>Data on bad disk is the unknown in equation</li>
+<li>Parity calculated over data blocks in stripe: Parity0 = Data0 <strong>XOR</strong> Data1 <strong>XOR</strong> Data2</li>
+<li>Reconstruct blocks of lost disk by taking XOR: Data1 = Data0 <strong>XOR</strong> Data2 <strong>XOR</strong> Parity0</li>
+<li>Update Parity:
+<ul>
+<li><strong>Slow approach:</strong> read all other N-2 blocks in stripe and calculate new parity</li>
+<li><strong>Faster approach:</strong> new_par = old_val XOR new_val XOR old_par</li>
+<li>2 reads and 2 writes</li>
+</ul>
+</li>
+</ul>
+<p><strong>RAID 5: Rotated Parity</strong></p>
+<ul>
+<li>Rotate parity across different disks</li>
+<li>Sector number get shifted left (or right)</li>
+<li>RAID-5 is strictly better than RAID-4</li>
+<li>RAID-1 better than RAID-5 for random workloads</li>
+<li>RAID-5 better than RAID-1 for sequential workloads</li>
+</ul>
+<p><strong>FILE SYSTEM API</strong></p>
+<p><strong>File Names:</strong></p>
+<ol>
+<li><strong>inode number</strong>
+<ol>
+<li>Each file has exactly one unique inode number</li>
+<li>Different file systems may use the same number</li>
+<li>Numbers may be recycled after deletes</li>
+<li>Drawbacks:
+<ol>
+<li>names hard to remember</li>
+<li>no organization or meaning to inode numbers</li>
+<li>semantics of offset across multiple processes</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>paths</strong>
+<ol>
+<li>Directory Tree instead of single root directory</li>
+<li>File name (String names) needs to be unique only within a directory</li>
+<li>Still interact with inode numbers</li>
+<li>Store <em>path-to-inode</em> mappings in Directory</li>
+<li><strong>Drawbacks</strong>: Expensive traversal</li>
+</ol>
+</li>
+<li><strong>file descriptor (FD)</strong>
+<ol>
+<li>Do expensive traversal once (open file)</li>
+<li>Store inode in descriptor object (kept in memory)</li>
+<li>Do reads/writes via descriptor, which tracks offset</li>
+<li>Advantages:
+<ol>
+<li>human-readable names</li>
+<li>hierarchical</li>
+<li>traverse once</li>
+<li>offsets precisely defined</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>File functions:</strong></p>
+<p><code>**open()**</code>: Create new files or open existing files</p>
+<p><code>**read()/write()**</code>: Access file contents</p>
+<p><code>**mkdir()**</code>: Create directories</p>
+<p><strong><code>lseek()</code></strong>: SEEK_SET, <strong>set</strong> offset ****to offset bytes; SEEK_CUR, set offset to cur location <strong>plus</strong> offset; SEEK_END, set offset to <strong>size</strong> plus offset</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-12-22_at_01.56.27.png" alt="Screen Shot 2022-12-22 at 01.56.27.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-12-22_at_01.56.45.png" alt="Screen Shot 2022-12-22 at 01.56.45.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><strong><code>fork()</code></strong>: a parent creates a child and waits for it to complete. The child adjusts the current offset with lseek() and exits. The parent, after waiting for the child, checks the current offset and prints out its value.
+<strong><code>unlink()</code></strong>: path names are removed</p>
+<p><strong><code>close()</code></strong>: FDs are removed or process are quit</p>
+<p><strong><code>fsync(int fd)</code>:</strong> forces buffers to flush from memory to disk, tells disk to flush its write cache, Makes data <strong>durable.</strong> A successful close does not guarantee that the data has been successfully saved to disk, make sure use <strong>fsync(2)</strong></p>
+<p><strong><code>rename(char *old, char *new)</code>:</strong> deletes an old link to a file, creates a new link to a file, Just changes name of file, does not move (or copy) data</p>
+<p><strong>Hard Links:</strong> another name for file</p>
+<ul>
+<li>increase ref count when link added</li>
+<li>does not remove file until ref count is 0</li>
+<li>cannot hard link directories</li>
+</ul>
+<p><strong>Soft Links:</strong> Point to second path name</p>
+<ul>
+<li>have new inode number</li>
+<li>Set bit in inode designating “soft link”;</li>
+<li>Interpret associated data as file name</li>
+<li>possible to link to directories</li>
+<li>does not change ref rount</li>
+</ul>
+<p><strong>File System</strong></p>
+<ul>
+<li>Max # of files = max # of inodes = # of inode blocks * (sizeof(block)/sizeof(inode));</li>
+<li>Inode table size = # of inode blocks * size of 1 block;</li>
+<li>block = (inum * sizeof(inode)) / block size;</li>
+<li>Sector # for fetching inode block = (block * block size + inodeStartAddr) or
+offset into inode region] / sector size = (inum * sizeof(inode) + inodeStartAddr) / sector size</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-12-22_at_02.23.44.png" alt="Screen Shot 2022-12-22 at 02.23.44.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><strong>Superblock:</strong> Parameters of the file system (e.g., how many inodes)</p>
+<p><strong>i-bitmap:</strong> Which inodes are in use?</p>
+<p><strong>d-bitmap:</strong> Which data blocks are in use?</p>
+<p><strong>FSCK and Journaling: Fix Inconsistencies</strong></p>
+<p><strong>FSCK</strong> = file system checker</p>
+<ul>
+<li><strong>Strategy:</strong> run checker after reboot/crash, scan entire file sys, find inconsistencies btwn bitmaps and inode, fix mismatches (Slow)</li>
+</ul>
+<p><strong>Journaling</strong></p>
+<ul>
+<li><strong>Strategy</strong>: Don’t delete any old info until all new info is safely on disk
+<ul>
+<li>Make a note of what needs to be written</li>
+<li>After note is completely written, update file metadata and data</li>
+<li>Remove note</li>
+<li>If a note is not completely written, ignore note (old data still good)</li>
+<li>If a note is completely written, <em>replay</em> it to recover data</li>
+</ul>
+</li>
+<li><strong>Journal:</strong> Blocks designated to store notes</li>
+<li><strong>Transaction:</strong>
+<ul>
+<li><strong>TxB (“Begin Transaction”):</strong> Holds unique id and blocks affected</li>
+<li><strong>TxE (“End Transaction”):</strong> Indicates transaction has committed</li>
+<li>Set of writes that “belong together” (should execute atomically)</li>
+<li>Last part of a transaction is its <em>commit block</em>
+<ul>
+<li>Transaction is considered <em>committed</em> after this block is written</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Checkpoint:</strong> Writing to in-place metadata and data after commit</li>
+<li>in real system:
+<ul>
+<li>Batch or group Transactions</li>
+<li>For performance, many operations are placed in single transaction</li>
+<li>Journal is large; treat as circular buffer</li>
+<li>Checkpoint periodically</li>
+</ul>
+</li>
+<li><strong>Optimizations</strong></li>
+<li><strong>Barriers</strong>
+<ul>
+<li>Before journal commit, ensure journal transaction entries complete</li>
+<li>Before checkpoint, ensure journal commit complete</li>
+<li>Before free journal, ensure checkpoint (in-place updates) complete</li>
+</ul>
+</li>
+<li>In last transaction block, store <strong>checksum</strong> of rest of transaction, During recovery: If checksum does not match, treat as not valid</li>
+<li><strong>Batched updates:</strong> If two files are created, all things write twice, mark dirty in memory, update in one transaction</li>
+<li><strong>Delay checkpoints</strong> some times to avoid system crush after journal write</li>
+<li><strong>Circular Log</strong>
+<ul>
+<li><strong>Difficulty:</strong> need to reuse journal space</li>
+<li><strong>Solution:</strong> keep many transactions for un-checkpointed data</li>
+</ul>
+</li>
+<li>Avoid Journal Write Disk Twice
+<ul>
+<li>Journal all metadata, including superblock, bitmaps, inodes, indirects, directories</li>
+<li>Guarantees metadata is consistent if crash occurs</li>
+<li>Will not leak space or re-allocate blocks to multiple files</li>
+<li>For regular user data, write it to in-place location whenever convenient</li>
+<li>Files may contain <strong>garbage</strong> (partial old, partial new) if we crash and recover</li>
+</ul>
+</li>
+</ul>
+<p><strong>Metadata Journaling</strong></p>
+<ul>
+<li>user data does not written to the journal</li>
+<li>data write before the transaction commit block to avoid garbage</li>
+</ul>
+<p><strong>Previous Solutions:</strong></p>
+<ul>
+<li>
+<p><strong>Contiguous allocation:</strong></p>
+<p>Allocate files like segmented memory (give each disk sector a number from 0 up). Keep a free list of unused areas of the disk. When creating a file, make the user specify its length, allocate all the space at once. Descriptor contains location and size.</p>
+<ul>
+<li>Advantages: easy access, both sequential and random. Simple. Few seeks.</li>
+<li>Drawbacks: <strong>horrible fragmentation</strong> will preclude large files, hard to predict needs. With interleaved user requests, still cannot eliminate all seeks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Linked Files:</strong></p>
+<p>In the file descriptor, just keep pointer to first block. In each block of file keep pointer to next block. Can also keep a linked list of free blocks for the free list.</p>
+<ul>
+<li>Advantages: Files can be extended, <strong>no fragmentation problems</strong>. Sequential Access is easy: just chase links. No extra space for the free list.</li>
+<li>Drawbacks: Random access is virtually impossible. <strong>Lots of seeking</strong>, even in sequential access. Pointer to next block occupies same block as data.</li>
+<li>Example: FAT (MSDOS) file system.</li>
+</ul>
+</li>
+<li>
+<p><strong>Array of Block Pointers (Extents):</strong></p>
+<p>Allocate an array to hold pointers to all the blocks, but do not allocate the blocks. Then fill in the pointers dynamically using a free list.</p>
+<ul>
+<li>Advantages: Both sequential and random access are easy.</li>
+<li>Drawbacks: still have to set maximum file size, and there will be <strong>lots of seeks</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>DOS FAT File File System:</strong></p>
+<p>A single File Allocation Table (FAT) that combines free list info and file allocation info. In file descriptor, keep pointer to first block. A FAT table entry contains either (1) the block number of the next block in the file, (2) a distinguished &ldquo;end of file&rdquo; (eof) value, or (3) a distinguished &ldquo;free&rdquo; value.</p>
+<ul>
+<li>Advantages &amp; Disadvantages: similar to those mentioned above for linked file.</li>
+</ul>
+</li>
+</ul>
+<p><strong>How are file systems used?</strong></p>
+<ul>
+<li>Most files are small.</li>
+<li>Much of the disk is allocated to large files.</li>
+<li>Many of the I/O&rsquo;s are made to large files.</li>
+</ul>
+<p>Thus, the per-file cost must be low, but the performance of large files must be good. Must allow reasonably fast random access, extensibility.</p>
+<p><em><strong>file descriptor</strong>:</em> The data structure that describes the contents of file. (like inode and MFTE)</p>
+<p>The file descriptor information stored on disk to make sure it will stay around without OS.</p>
+<ul>
+<li>In Unix, all the descriptors are stored in a <strong>fixed size array on disk</strong>. The descriptors also contain <strong>protection</strong> and <strong>accounting</strong> information.</li>
+<li>A special area of disk is used for this (disk contains two parts: the <strong>fixed-size descriptor array</strong>, and the <strong>remainder</strong>, which is allocated for data and indirect blocks).</li>
+<li>The size of the descriptor array is determined when the disk is initialized, and cannot be changed. In Unix, the descriptor is called an <em><strong>i-node</strong></em>, and its index in the array is called its <em>i-number</em>. Internally, the OS uses the i-number to refer to the file.</li>
+<li>When a file is open, its descriptor is kept in main memory. When the file is closed, the descriptor is stored back to disk.</li>
+</ul>
+<p><strong>Classic Unix I-Node:</strong></p>
+<ul>
+<li>File descriptors: 13 block pointers. The first 10 point to data blocks, the next three to indirect, doubly-indirect, and triply-indirect blocks (256 pointers in each indirect block). Maximum file length is fixed, but large. Descriptor space is not allocated until needed.</li>
+<li>Free blocks: stored on a free list in no particular order.</li>
+<li>Advantages: simple, easy to implement, incremental expansion, easy access to small files.</li>
+<li>Drawbacks:
+<ul>
+<li>Indirect mechanism results in <strong>inefficient access to large files</strong>: 3 descriptor ops for each real operation. A cache is used, but this takes up main memory space.</li>
+<li>Block-by-block organization of free list means that that file data gets spread around the disk.</li>
+</ul>
+</li>
+</ul>
+<p><strong>The Demos File System:</strong></p>
+<p>Allocates files contiguously, has more compact file descriptors, uses more CPU time.</p>
+
+
+        </article>
+
+        
+
+
+
+
+
+        
+
+
+
+        
+        
+        <div class="article-widget">
+          
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/notes/537os/1.-midterm-review/" rel="prev">Midterm Review</a>
+  </div>
+  
+</div>
+
+        </div>
+        
+      </div>
+
+      <div class="body-footer">
+        <p>Last updated on Sep 9, 2018</p>
+
+        
+
+
+
+
+        
+
+
+
+
+        
+
+
+      </div>
+
+      <footer class="site-footer">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2023 Xizheng Yu. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/bryanbraun/anchorjs@4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+<script>
+  anchors.add();
+</script>
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":false}</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+
+
+
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

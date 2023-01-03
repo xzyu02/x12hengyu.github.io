@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: January 2, 2023 --><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Xizheng (Hugh) Yu" />
+
+
+
+
+
+  
+
+<meta name="description" content="VIRTUALIZATION: Build an illusion of unlimited hardware, e.g., as many CPUs as needed; a large, private memory region for each program.
+Time-Sharing: Multiple applications use the same resource at different times Share the same CPU core among multiple processes Space-Sharing: Multiple applications use parts of the same resource at the same time Allocate a certain number of CPU (cores) to a process Goals:" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://x12hengyu.github.io/notes/537os/1.-midterm-review/" />
+<link rel="canonical" href="https://x12hengyu.github.io/notes/537os/1.-midterm-review/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:image" content="https://x12hengyu.github.io/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_512x512_fill_lanczos_center_3.png" />
+<meta property="og:site_name" content="Xizheng Yu" />
+<meta property="og:url" content="https://x12hengyu.github.io/notes/537os/1.-midterm-review/" />
+<meta property="og:title" content="Midterm Review | Xizheng Yu" />
+<meta property="og:description" content="VIRTUALIZATION: Build an illusion of unlimited hardware, e.g., as many CPUs as needed; a large, private memory region for each program.
+Time-Sharing: Multiple applications use the same resource at different times Share the same CPU core among multiple processes Space-Sharing: Multiple applications use parts of the same resource at the same time Allocate a certain number of CPU (cores) to a process Goals:" /><meta property="og:image" content="https://x12hengyu.github.io/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2018-09-09T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2018-09-09T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Midterm Review | Xizheng Yu</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="e06ec98da84ce39dc1360f9b36f80048" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Xizheng Yu</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Xizheng Yu</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#publication"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Notes</span><span class="caret"></span>
+            </a>
+            <div class="dropdown-menu">
+              
+                <a class="dropdown-item" href="/notes/537os"><span>CS537 Operating System</span></a>
+              
+            </div>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    
+
+
+
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      <form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-md-3 w-100" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <div class="d-flex">
+      <span class="d-md-none pl-1 flex-grow-1 text-left overflow-hidden">
+        
+        
+          CS-537: Introduction to Operating Systems
+        
+      </span>
+      <span><i class="fas fa-chevron-down"></i></span>
+    </div>
+  </button>
+
+  
+  <button class="form-control sidebar-search js-search d-none d-md-flex">
+    <i class="fas fa-search pr-2"></i>
+    <span class="sidebar-search-text">Search...</span>
+    <span class="sidebar-search-shortcut">/</span>
+  </button>
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+
+    
+      
+
+      <ul class="nav docs-sidenav">
+        <li><a href="/notes/"><i class="fas fa-arrow-left pr-1"></i>Notes</a></li>
+      </ul>
+
+      
+      
+        
+          
+        
+      
+
+
+  
+    
+    
+    
+    
+      
+    
+    
+
+    
+      <div class="docs-toc-item">
+        <a class="docs-toc-link " href="/notes/537os/">CS-537: Introduction to Operating Systems</a>
+    
+      
+        <ul class="nav docs-sidenav">
+      
+
+
+  <li class=""><a href="/notes/537os/2.-final-review/">Final Review</a></li>
+
+
+
+  <li class="active"><a href="/notes/537os/1.-midterm-review/">Midterm Review</a></li>
+
+      
+        </ul>
+      
+    
+
+    
+      </div>
+    
+
+    
+  
+</nav>
+
+    </div>
+
+    
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#virtualization"><strong>VIRTUALIZATION:</strong></a></li>
+    <li><a href="#scheduling"><strong>SCHEDULING:</strong></a></li>
+    <li><a href="#process-creation"><strong>PROCESS CREATION</strong></a></li>
+    <li><a href="#memory-virtualizing"><strong>MEMORY VIRTUALIZING</strong></a></li>
+    <li><a href="#segmentation"><strong>SEGMENTATION</strong></a></li>
+    <li><a href="#paging"><strong>PAGING</strong></a></li>
+  </ul>
+</nav>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <div class="docs-article-container">
+        
+      </div>
+
+      
+      
+      
+
+      <div class="docs-article-container">
+        
+        <h1>Midterm Review</h1>
+
+        <article class="article-style">
+
+          
+          
+
+          <h2 id="virtualization"><strong>VIRTUALIZATION:</strong></h2>
+<p>Build an illusion of unlimited hardware, e.g., as many CPUs as needed; a large, private memory region for each program.</p>
+<ul>
+<li><strong>Time-Sharing:</strong> Multiple applications use <em>the same resource</em> at <em>different times</em>
+<ul>
+<li>Share the same CPU core among multiple processes</li>
+</ul>
+</li>
+<li><strong>Space-Sharing:</strong> Multiple applications use <em>parts of the same resource</em> at <em>the same time</em>
+<ul>
+<li>Allocate a certain number of CPU (cores) to a process</li>
+</ul>
+</li>
+</ul>
+<p><strong>Goals:</strong></p>
+<ul>
+<li><strong>Efficiency</strong>
+<ul>
+<li>Virtualization should not create a significant overhead</li>
+</ul>
+</li>
+<li><strong>Security</strong>
+<ul>
+<li>Protect processes form each other</li>
+<li>Protect the OS from processes</li>
+</ul>
+</li>
+<li><strong>High-level Goal</strong>
+<ul>
+<li>Give each <em>running program</em> the impression it alone is actively using the CPU and other resources</li>
+</ul>
+</li>
+</ul>
+<p><strong>Processes:</strong></p>
+<ul>
+<li>Programs vs. Processes: We <strong>Compile</strong> Programs and <strong>Run</strong> Processes</li>
+<li>We want each running program that impression it alone is actively using the CPU and other resources.</li>
+<li>Things changes during programs running:
+<ul>
+<li>I/O: open file descriptors, write to disk, network, screen</li>
+<li>CPU: Registers, Program Counter, General Purpose</li>
+</ul>
+</li>
+<li>Pause a process:
+<ul>
+<li><strong>On Pause:</strong>
+<ul>
+<li>Process state is stored on its <em>kernel stack.</em></li>
+<li><em><strong>The kernel stack is managed by the OS among other process metadata</strong></em></li>
+</ul>
+</li>
+<li><strong>On Resume:</strong>
+<ul>
+<li>Process state is restored from kernel stack to the CPU</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Limited</strong> <strong>Direct Execution:</strong></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-09-13_at_17.58.38.png" alt="Screen Shot 2022-09-13 at 17.58.38.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<ul>
+<li>Problems:
+<ul>
+<li>Security: process might do restricted things</li>
+<li>Efficiency: process might do things slow</li>
+<li>Process may run forever</li>
+</ul>
+</li>
+<li>Solution:
+<ul>
+<li>User Mode (restricted mode): limited instructions, single address space</li>
+<li>Kernel Mode (privileged): execute all instructions, access all of memory</li>
+</ul>
+</li>
+<li>Switching between user and Kernel Mode:
+<ul>
+<li><strong>Trap:</strong> Enters kernel mode from user mode
+<ul>
+<li>Code invokes <em>system calls</em></li>
+<li>Code performs illegal/restricted operation</li>
+</ul>
+</li>
+<li><strong>Return-from-trap:</strong> Executed after returning the process</li>
+<li><strong>Trap handlers:</strong>
+<ul>
+<li>Set up at boot time by the OS</li>
+<li>Executed after a process calls a trap</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-09-13_at_18.13.44.png" alt="Screen Shot 2022-09-13 at 18.13.44.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><strong>Multi-Processes:</strong></p>
+<ul>
+<li><strong>So far:</strong> Cooperative multi-tasking
+<ul>
+<li>Can only switch to another task if the process says so</li>
+</ul>
+</li>
+<li><strong>Non-cooperative multi-tasking</strong>
+<ul>
+<li>Time-share the same CPU core among multiple processes</li>
+<li>Switch between processes <em>every few milliseconds</em></li>
+</ul>
+</li>
+<li><strong>Timer Interrupts</strong>
+<ul>
+<li>Setup up by the operating system at boot time</li>
+<li>Timer interrupt the CPU every few milliseconds</li>
+<li>Operating System may run scheduler* to decide which process to run next</li>
+</ul>
+</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-09-13_at_18.33.21.png" alt="Screen Shot 2022-09-13 at 18.33.21.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="537%20Operating%20Systems%2073c09b31c7974b89b9ad70bf1dd6b6b6/Screen_Shot_2022-09-13_at_18.33.48.png" alt="Screen Shot 2022-09-13 at 18.33.48.png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Do not schedule/run a blocked processes</p>
+<p><strong>Threads:</strong></p>
+<ul>
+<li><strong>Threads: “Lightweight process”</strong>
+<ul>
+<li>A process can have multiple threads</li>
+<li>All threads of a process read/write the processes memory</li>
+</ul>
+</li>
+<li><strong>They are handled (almost) the same as processes by the OS</strong>
+<ul>
+<li>Each thread has their own stack and kernel stack</li>
+<li>Threads can be ready, running, or blocking</li>
+</ul>
+</li>
+</ul>
+<h2 id="scheduling"><strong>SCHEDULING:</strong></h2>
+<p>Minimize <strong>turnaround time</strong> (<em>turnaround_time <strong>=</strong> completion_time – arrival_time</em>)</p>
+<ul>
+<li>Want job to be completed as soon as possible</li>
+<li><strong>FIFO</strong> (First In, First Out), run jobs in arrival order
+<ul>
+<li>A: arrival 0, run 10, B: arrival 0, run 10, C: arrival 0, run 10</li>
+<li><strong>Average Turnaround Time</strong> = (10+20+30)/3 = 20s</li>
+<li><strong><strong><strong><strong><strong><strong><strong><strong>Problem:</strong></strong></strong></strong></strong></strong></strong></strong> Convoy problem, A pretty long job
+<ul>
+<li>A: arrival 0, run 100, B: arrival 0, run 10, C: arrival 0, run 10</li>
+<li><strong>Average Turnaround Time</strong> = (100+110+120)/3 = 110s</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>SJF</strong> (Shortest Job First)
+<ul>
+<li>Moving shorter job before longer job improves turnaround time of short job</li>
+<li>A: arrival 0, run 100, B: arrival 0, run 10, C: arrival 0, run 10</li>
+<li><strong>Average Turnaround Time</strong> = (10+20+120)/3 = 50s</li>
+<li><strong>Problem</strong>: Jobs do not arrive at the same time
+<ul>
+<li>A: arrival 0, run 100, B: arrival 10, run 10, C: arrival 10, run 10</li>
+<li><strong>Average Turnaround Time</strong> = (100+110-10+120-10)/3 = 103s</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>STCF</strong> (Shortest Time-to-Completion First)
+<ul>
+<li>Always run job that will complete the quickest</li>
+<li>A: arrival 0, run 100, B: arrival 10, run 10, C: arrival 10, run 10</li>
+<li><strong>Average Turnaround Time</strong> = (10+20+120)/3 = 50s</li>
+<li><strong>Problem</strong>: what if we do not know job runtime?</li>
+</ul>
+</li>
+</ul>
+<p>Minimize <strong>response time</strong> (<em>response_time <strong>=</strong> first_run_time – arrival_time</em>)</p>
+<ul>
+<li>Can’t control how long job needs to run; minimize time before scheduled</li>
+<li><strong>Round-Robin</strong> (RR)
+<ul>
+<li>Alternate ready processes for a fixed-length time-slice, Short jobs will finish after fewer time-slices</li>
+<li>Features:
+<ul>
+<li>May increase turnaround time, decreases response time</li>
+<li>Potentially causes additional context switches</li>
+</ul>
+</li>
+<li>A: arrival 0, run 5, B: arrival 0, run 5, C: arrival 0, run 5</li>
+<li><strong>Average Turnaround Time</strong> = (13+14+15)/3 = 14s</li>
+<li><strong>Average Response Time</strong> = (1-0+2-0+3-0)/3 = 2s</li>
+</ul>
+</li>
+<li><strong>MLFQ</strong> (Multi-Level Feedback Queue)
+<ul>
+<li>Support two job types
+<ul>
+<li><strong>Interactive</strong> programs care about response time</li>
+<li><strong>Batch</strong> programs care about turnaround time</li>
+</ul>
+</li>
+<li>Approach:
+<ul>
+<li>Multiple levels of round-robin</li>
+<li>Each level has higher priority than lower level</li>
+<li>Can preempt them</li>
+</ul>
+</li>
+<li>Rules:
+<ol>
+<li>If priority(A) &gt; Priority(B), A runs</li>
+<li>If priority(A) == Priority(B), A &amp; B run in Round-Robin</li>
+<li>Processes start at top priority</li>
+<li>If job uses whole slice, demote process</li>
+</ol>
+</li>
+<li><strong>Starvation Problem</strong>: Low priority batch job may never get scheduled if other jobs at high priority</li>
+<li><strong>Solution</strong>: Periodically <strong>boost</strong> priority of all jobs (or all jobs that haven’t been scheduled)</li>
+<li><strong>Problem</strong>: Job could trick scheduler by not using entire time-slice, (doing I/O just before time-slice end)</li>
+</ul>
+</li>
+<li><strong>Lottery Scheduling</strong>
+<ul>
+<li>Approach:
+<ul>
+<li>give processes lottery tickets</li>
+<li>whoever wins runs</li>
+<li>higher priority =&gt; more tickets</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Maximize <strong>throughput</strong> (jobs completed / second)</p>
+<ul>
+<li>Want many jobs to complete per unit of time</li>
+</ul>
+<p>Maximize <strong>resource utilization</strong> (% time CPU busy)</p>
+<ul>
+<li>Keep expensive devices busy</li>
+</ul>
+<p>Minimize <strong>overhead</strong> (# of context switches and cache misses)</p>
+<ul>
+<li>Reduce number of context switches</li>
+</ul>
+<p>Maximize <strong>fairness</strong> (variation of CPU time across jobs)</p>
+<ul>
+<li>All jobs get same amount of CPU over some time interval</li>
+</ul>
+<h2 id="process-creation"><strong>PROCESS CREATION</strong></h2>
+<ol>
+<li>New Process
+<ul>
+<li>pro: no wasted work</li>
+<li>con: difficult to setup process and express all options</li>
+</ul>
+</li>
+<li>Copy and Change (fork() and exec())
+<ul>
+<li>pro: flexible, clean, simple</li>
+<li>con: waste copy and memory</li>
+</ul>
+</li>
+</ol>
+<h2 id="memory-virtualizing"><strong>MEMORY VIRTUALIZING</strong></h2>
+<p><strong>Time-share Memory</strong></p>
+<ul>
+<li>swap between disk and memory</li>
+<li><strong>Problem</strong>: disk is so slow</li>
+</ul>
+<p><strong>Static Relocation</strong></p>
+<ul>
+<li>Rewrite each code segment before loading it in memory</li>
+<li><strong>Problem</strong>: No protection, Poor security, No dynamic allocation</li>
+</ul>
+<p><strong>Dynamic Relocation</strong></p>
+<ul>
+<li><strong>MMU</strong> (Memory Management Unit)
+<ul>
+<li><strong>Non-privileged (user) mode:</strong> Processes run
+<ul>
+<li>Perform translation of <strong>Virtual</strong> address to <strong>Physical</strong> address</li>
+</ul>
+</li>
+<li><strong>Privileged (protected, kernel) mode:</strong> OS runs
+<ul>
+<li>When enter OS (trap, system calls, interrupts, exceptions)</li>
+<li>Allows privileged instructions to be executed</li>
+<li>Can manipulate contents of MMU</li>
+<li>Allows OS to access all of physical memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>MMU dynamically changes process address at every memory reference</strong>
+<ul>
+<li>Process generates logical or <strong>virtual</strong> addresses (in their address space)</li>
+<li>Memory hardware uses <strong>physical</strong> or real addresses</li>
+</ul>
+</li>
+<li><strong>Base Registers</strong>
+<ul>
+<li>Each process has different value in base register</li>
+<li>Set by the OS on context switch</li>
+<li>MMU adds base register to <strong>virtual</strong> address to form <strong>physical</strong> address
+<ul>
+<li>e.g. Process 1 (Base 1024), Virtual - P1 load 100, Physical - load 1124</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Base and Bounds</strong>
+<ul>
+<li><strong>Base register:</strong> Smallest physical address (or starting location)</li>
+<li><strong>Bounds register:</strong> Size of this process’s virtual address space</li>
+<li>MMU performs bound check, if beyond bounds (<strong>Bad Address)</strong>, OS kill it
+<ul>
+<li>e.g. Process 1 (Base 1024, Bounds 1024)</li>
+<li>Virtual - P1 load 100, Physical - load 1124; Virtual - P1 load 2000, Kill P1</li>
+</ul>
+</li>
+<li>OS involvement:
+<ul>
+<li>Bad Address → Exception → OS → Free memory</li>
+<li>Process Create/Exit</li>
+<li>Context switch</li>
+</ul>
+</li>
+<li>pro:
+<ul>
+<li>Provides protection (both read and write) across address spaces</li>
+<li>Supports dynamic relocation</li>
+<li>Can place process at different locations initially and move address spaces</li>
+<li>Simple, inexpensive implementation in MMU</li>
+</ul>
+</li>
+<li>con:
+<ul>
+<li>Each process must be allocated contiguously in physical memory</li>
+<li>reserve memory cause waste</li>
+<li>cannot share between process</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="segmentation"><strong>SEGMENTATION</strong></h2>
+<p>Divide logical address space into logical segments – visible to the OS</p>
+<p>Several base + bound pairs per process</p>
+<p>Each segment has own code, stack, heap</p>
+<ul>
+<li>Virtual Address: 1. Top bits of segment 2. Low bits of offset within segment</li>
+<li>pro:
+<ul>
+<li>Each segment can independently be placed separately in physical memory</li>
+<li>grow and shrink</li>
+<li>be protected (separate read/write/execute bits)</li>
+</ul>
+</li>
+<li>cons:
+<ul>
+<li>Each segment must be allocated contiguously</li>
+<li>External Fragmentation: Small pieces of free memory might not be usable/assignable</li>
+</ul>
+</li>
+</ul>
+<h2 id="paging"><strong>PAGING</strong></h2>
+<p>Goal: Remove requirement that address space needs to be contiguous</p>
+<ul>
+<li>Eliminates external fragmentation</li>
+<li>Ability to grow address space as needed</li>
+</ul>
+<p>Divide address spaces and physical memory into fixed-sized (same sized) pages</p>
+<ul>
+<li>Divide (virtual) address space into fixed-sized units (e.g. 4kb), called <strong>pages</strong></li>
+<li>Divide (physical) memory into fixed-sized slots called <strong>page frames</strong></li>
+</ul>
+<p><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Page Tables</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
+<ul>
+<li>One for each process</li>
+<li>One for the kernel’s virtual memory</li>
+<li>Additionally, we need a free list keeps track of which frames are free or currently mapped to a process</li>
+<li><strong>Translation</strong>
+<ul>
+<li>High-order bits of address designate <strong>VPN</strong> (Virtual Page Number)</li>
+<li>Low-order bits of address designate offset within page</li>
+<li>Translate <strong>VPN</strong> to <strong>PFN</strong> (Physical Frame Number)</li>
+<li>Append offset to PFN get physical address</li>
+</ul>
+</li>
+<li>Calculation
+<ul>
+<li>e.g. 32 bits address space, 4kb pages, 4bytes of <strong>PTEs (page table entries)</strong></li>
+<li>$\textup{Offsets} = \log_2(\textup{Page Size})$
+<ul>
+<li>log2(4kb) = 12</li>
+</ul>
+</li>
+<li>$\textup{Bits for VPN} = \textup{Address Space} - \textup{Offsets}$
+<ul>
+<li>32 - 12 = 20</li>
+</ul>
+</li>
+<li>$\textup{Number of Entries (Virtual Pages)} = 2^{\textup{Bits of VPN}}$
+<ul>
+<li>2^20 = 1M</li>
+</ul>
+</li>
+<li>$\textup{Page Table Size = number of entries * size of each entry}$
+<ul>
+<li>2^20 * 4 bytes = 4Mb</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>PTBR (page table base register)</strong></p>
+<ul>
+<li>Let MMU know where the page table for the current running process</li>
+<li>Change contents in PTBR for context switch between process</li>
+</ul>
+<p><strong>Paging</strong> <strong>Advantages</strong>:</p>
+<ul>
+<li>No external fragmentation</li>
+<li>Fast to allocate (sbrk) and free</li>
+<li>Simple to swap-out portions of memory to disk</li>
+</ul>
+<p><strong>Problems and Solutions</strong>:</p>
+<ul>
+<li>Page table itself is stored in memory → Cache through TLB</li>
+<li>Page table too big → change data structure</li>
+</ul>
+<p><strong>Caching through TLB:</strong></p>
+<ul>
+<li><strong>TLB (Translation Lookaside Buffer):</strong> Holds recent PTEs</li>
+<li>VPN | PTE | Protection Bits</li>
+<li><strong>Hit</strong>: VPN → PFN translation is in TLB (PFN | Offset)</li>
+<li><strong>Miss</strong>: not in TLB, OS raise an exception, use PTBR fetch the PTE (slow), update TLB with new entry problem</li>
+<li><strong>Performance</strong>
+<ul>
+<li>Performance depends strongly on workload</li>
+<li>Miss rate = # TLB misses / # TLB lookups</li>
+<li>Hit rate = # TLB Hits / # TLB lookups</li>
+<li>smaller pages: worse hit rate</li>
+<li>more iteration: stays same</li>
+</ul>
+</li>
+<li><strong>Workload Locality</strong>
+<ul>
+<li><strong>Spatial Locality</strong>: future access will be to <strong>nearby</strong> addresses
+<ul>
+<li>Repeatedly access nearby addresses on same page; need same VPN to PFN translation</li>
+<li>Same TLB entry re-used</li>
+</ul>
+</li>
+<li><strong>Temporal Locality</strong>: future access will be repeats to the <strong>same</strong> data as past access
+<ul>
+<li>Access same address near in future</li>
+<li>Same TLB entry re-used sometime in future</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>TLB for Code</strong>
+<ul>
+<li>Code tends to be relatively <strong>sequential</strong></li>
+<li>Procedure calls depend on <strong>temporal</strong> locality</li>
+<li>LRU is a good choice
+<ul>
+<li>problem: high missing rate for repeated data</li>
+<li>other choices: random?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>TLBs increase cost of context switches</strong>
+<ol>
+<li>Flush TLB on each context switch (privileged instruction)
+<ol>
+<li>problem: lose all recently cached translations, increases miss rate</li>
+</ol>
+</li>
+<li>Track which TLB entries are for which process
+<ol>
+<li>Address Space Identifier (ASID) – similar to PID</li>
+<li>Tag each TLB entry with 8-bit ASID</li>
+<li>Must match ASID for TLB entry to be used</li>
+<li>problem:
+<ol>
+<li>Context switches are <strong>expensive</strong></li>
+<li>other processes “pollute” TLB</li>
+<li>Architectures can have multiple TLBs</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>Combine Paging and Segmentation</strong></p>
+<p>Why that large? Linear page tables must allocate PTE for each page in address space</p>
+<ul>
+<li>Each segment has a page table</li>
+<li>Each segment tracks base (physical addr.) and bounds of the <strong>page table</strong></li>
+<li>Pros:
+<ul>
+<li>Pro for Segment:
+<ul>
+<li>Decreases size of page tables (only need PTEs for allocated portions)</li>
+<li>If segment not allocated, no need for page table</li>
+</ul>
+</li>
+<li>Pro of Pages:
+<ul>
+<li>No external fragmentation</li>
+<li>Segments can grow without any compaction or page movement</li>
+<li>Can run process when some pages are swapped to disk</li>
+</ul>
+</li>
+<li>Combine:
+<ul>
+<li>Increases flexibility of sharing: Share either single page or entire segment</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>Page table has to be contiguous, still large</li>
+<li>Not easy to grow segment because of reallocating the whole page table</li>
+<li>Fragmentation</li>
+</ul>
+</li>
+</ul>
+<p><strong>Multi-Level Page Table</strong></p>
+<p><strong>Idea:</strong> Page the page tables</p>
+<ul>
+<li>Creates multiple levels of page tables
+<ul>
+<li>Outer level is called <strong>page directory</strong> (per process)</li>
+</ul>
+</li>
+<li>Only allocate portion of page table if at least one of its pages is <strong>in use</strong> (valid)</li>
+<li><strong>page size = number PTE * PTE size</strong>
+<ul>
+<li>e.g. PTE size = 4bytes, page size = 4kb, PTEs (inner pages) = 4kb / 4bytes = 1024 entries</li>
+</ul>
+</li>
+<li><strong>page directory (outer) bits = address space - page offset - num PTE</strong>
+<ul>
+<li>e.g. addr space = 30, page size = 4kb, outer bits = 30 - 12 - 10 = 8</li>
+</ul>
+</li>
+<li><strong>Problem:</strong> page directories (outer level) may not fit in a page</li>
+<li><strong>Solution:</strong>
+<ul>
+<li>Split page directories into pieces</li>
+<li>Use another page directory to refer to the page directory pieces</li>
+</ul>
+</li>
+</ul>
+<p><strong>Inverted Page Tables</strong></p>
+<ul>
+<li>Find possible matches entries by hashing VPN+ASID</li>
+<li>Smaller number of entries to search for exact match</li>
+<li>Still requires software-controlled TLB</li>
+</ul>
+<p><strong>SWAPPING MEMORY</strong></p>
+<p><strong>Shared Memory</strong></p>
+<ul>
+<li>Exploit level of indirection between VA and PA</li>
+<li>Regions of two separate processes’ address spaces map to the same physical pages
+<ul>
+<li>read/write: access to share data</li>
+<li>execute: shared libraries!</li>
+</ul>
+</li>
+<li>Separate PTEs per process
+<ul>
+<li>Easy to provide different access privileges</li>
+</ul>
+</li>
+</ul>
+<p><strong>Copy-on-write (COW)</strong></p>
+<ul>
+<li>
+<p>Do not copy all pages; rather share the mappings</p>
+</li>
+<li>
+<p>Allows sharing of pages before changes are made</p>
+</li>
+<li>
+<p>Child process</p>
+<p>– Read-only mapping</p>
+<p>– On a write, protection fault occurs; copy page and resume</p>
+</li>
+<li>
+<p>Allows doing fork() very efficiently</p>
+</li>
+</ul>
+<p><strong>Leverage locality of reference within processes</strong></p>
+<ul>
+<li>Spatial: reference memory addresses <strong>near</strong> previously referenced addresses</li>
+<li>Temporal: reference memory addresses that have referenced in the <strong>past</strong></li>
+<li>Processes spend majority of time in a small portion of their code
+<ul>
+<li>Estimate: 90% of time in 10% of code</li>
+</ul>
+</li>
+</ul>
+<p><strong>Idea:</strong> OS keeps unreferenced pages on disk (HDD or SSD)</p>
+<ul>
+<li>Swap relies on key properties of user processes (workload) and machine architecture (hardware)</li>
+<li>Slower, cheaper backing store than memory</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>OS must have a <strong>mechanism</strong> to identify location of each page in address space in memory or on disk</li>
+<li>OS must have a <strong>policy</strong> for determining which pages live in memory and which
+on disk</li>
+</ul>
+<ol>
+<li><strong>Mechanism:</strong></li>
+</ol>
+<ul>
+<li><strong>mapping locations</strong>
+<ul>
+<li>Physical main memory: Small capacity, fast performance, expensive cost</li>
+<li>Disk (backing store): Large capacity, slow performance, inexpensive</li>
+<li>Nothing (error): Infinite size, infinitely fast, no cost</li>
+</ul>
+</li>
+<li><strong>extra bits</strong>
+<ul>
+<li>Permissions (r/w), valid, present, dirty in every PTE</li>
+<li>Page in memory: present bit set</li>
+<li>Page on disk: present bit cleared
+<ul>
+<li>PTE points to block on disk</li>
+<li>Causes trap into OS when page is referenced (page fault)</li>
+</ul>
+</li>
+<li>Page in memory, but in-memory contents don’t match those on disk:
+dirty bit set</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>Swapping Policies:</strong></li>
+</ol>
+<p>OS have two decisions to make:</p>
+<ul>
+<li>
+<p>Page selection</p>
+<ul>
+<li>
+<p><strong>Demand paging</strong>: Load page only when page fault occurs</p>
+<p>– Intuition: Wait until page must absolutely be in memory
+– When process starts: No pages are loaded in memory
+– Problems: Pay cost of page fault for every newly accessed page</p>
+</li>
+<li>
+<p><strong>Prepaging</strong> (anticipatory, prefetching): Load page before referenced</p>
+<p>– OS predicts future accesses (oracle) and brings pages into memory early
+– Works well for some access patterns (e.g., sequential)
+– Problems: Mispredictions – needed v/s not-needed</p>
+</li>
+<li>
+<p><strong>Hints</strong>: Combine above with user-supplied hints about page references</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Page Replacement</p>
+<ul>
+<li><strong>Optimal</strong> (OPT): Replace page not will not be used for longest time in future
+<ul>
+<li>pros: Guaranteed to minimize number of page faults</li>
+<li>cons: not practical</li>
+</ul>
+</li>
+<li><strong>FIFO</strong> (First-in-First-Out)
+<ul>
+<li>pro: Fair: All pages receive equal residency; Easy to implement; Usually have fewer page faults</li>
+<li>con: Some pages may always be needed</li>
+</ul>
+</li>
+<li><strong>LRU</strong> (Least-Recently-Used)
+<ul>
+<li>Use past to predict the future</li>
+<li>pro: With locality, LRU approximates OPT; Guaranteed to have fewer (or same number of) page faults; small memory subset for large memory; small cache useful for hardware</li>
+<li>cons: Does not handle all workloads well, not easy to implement, need tracks; does not consider <strong>frequency</strong> of accesses</li>
+</ul>
+</li>
+<li><strong>LFU</strong> (Least-Frequently-Used)
+<ul>
+<li>Trade-Off: We need to store more data</li>
+</ul>
+</li>
+<li>Clock
+<ul>
+<li>Keep <strong>use (or reference) bit</strong> for each page frame</li>
+<li>When page is referenced: set use bit</li>
+<li>Page replacement: Look for page with <strong>use bit cleared</strong></li>
+<li>Implementation:
+• Keep pointer to last examined page frame
+• Traverse pages in circular buffer
+• Clear use bits as we are searching
+• Stop when find page with already cleared use bit, replace this page</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>MRU (Most-Recently-Used)</p>
+</li>
+<li>
+<p>Random (Evict randomly-chosen entry)</p>
+</li>
+</ul>
+<p>#1 Update Shared Data</p>
+<ul>
+<li>use locks</li>
+</ul>
+<p>#2 Ordering</p>
+<ul>
+<li>something to happened before continuing → use conditional variables
+<ul>
+<li>wait → puts caller to sleep, releases lock</li>
+<li>signal → wake one waiting thread (if one is waiting in a <strong>Queue</strong> of waiting threads)</li>
+</ul>
+</li>
+</ul>
+<p>Producer and consumer problem (Bounded Buffer Problem)</p>
+
+
+        </article>
+
+        
+
+
+
+
+
+        
+
+
+
+        
+        
+        <div class="article-widget">
+          
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/notes/537os/2.-final-review/" rel="next">Final Review</a>
+  </div>
+  
+  
+</div>
+
+        </div>
+        
+      </div>
+
+      <div class="body-footer">
+        <p>Last updated on Sep 9, 2018</p>
+
+        
+
+
+
+
+        
+
+
+
+
+        
+
+
+      </div>
+
+      <footer class="site-footer">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2023 Xizheng Yu. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/bryanbraun/anchorjs@4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+<script>
+  anchors.add();
+</script>
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":false}</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+
+
+
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
