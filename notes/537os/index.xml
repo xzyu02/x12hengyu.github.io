@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CS-537: Introduction to Operating Systems | Xizheng Yu</title>
+    <title>CS537: Introduction to Operating Systems | Xizheng Yu</title>
     <link>https://x12hengyu.github.io/notes/537os/</link>
       <atom:link href="https://x12hengyu.github.io/notes/537os/index.xml" rel="self" type="application/rss+xml" />
-    <description>CS-537: Introduction to Operating Systems</description>
+    <description>CS537: Introduction to Operating Systems</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 30 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://x12hengyu.github.io/media/icon_hu884cc546a0e77e5b7423e9082176ac41_5858_512x512_fill_lanczos_center_3.png</url>
-      <title>CS-537: Introduction to Operating Systems</title>
+      <title>CS537: Introduction to Operating Systems</title>
       <link>https://x12hengyu.github.io/notes/537os/</link>
     </image>
     
